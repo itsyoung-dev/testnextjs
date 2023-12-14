@@ -12,7 +12,7 @@ const NavBar = () => {
                     <div className="flex items-center md:gap-x-12">
                         <a href="">
                             <Image
-                                src={"/assets/tns-logo-inverted.png"}
+                                src={"/assets/tns_logo_white_transparent.png"}
                                 alt="Logo"
                                 width={32}
                                 height={32}
