@@ -20,9 +20,14 @@ export const NavLinks = [
         ],
     },
     { href: "/", key: "Courses", text: "Courses", flyout: false },
-    { href: "/", key: "Patreon", text: "Patreon", flyout: false },
+    {
+        href: "/affiliate-program",
+        key: "Affiliate",
+        text: "Affiliate",
+        flyout: false,
+    },
+    { href: "/", key: "Membership", text: "Membership", flyout: false },
     { href: "/", key: "About", text: "About", flyout: false },
-    { href: "/", key: "Work", text: "Work", flyout: false },
 ];
 
 export const FeatureImages = [
