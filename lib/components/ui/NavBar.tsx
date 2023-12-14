@@ -1,6 +1,4 @@
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { NavLinks } from "@/lib/scripts/constants";
-import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
