@@ -1,9 +1,12 @@
-import React from 'react'
+import AffiliateBanner from "@/lib/components/homepage/AffiliateBanner";
+import React from "react";
 
 const AffiliatePage = () => {
-  return (
-    <div>AffiliatePage</div>
-  )
-}
+    return (
+        <>
+            <AffiliateBanner />
+        </>
+    );
+};
 
-export default AffiliatePage
+export default AffiliatePage;
