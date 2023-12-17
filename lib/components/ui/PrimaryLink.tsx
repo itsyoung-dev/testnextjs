@@ -8,7 +8,7 @@ interface LinkProps {
     bgOpacity?: string;
 }
 
-const Link: React.FC<LinkProps> = ({
+const PrimaryLink: React.FC<LinkProps> = ({
     href,
     content,
     bgHex,
@@ -18,13 +18,11 @@ const Link: React.FC<LinkProps> = ({
     return (
         <a
             href={href}
-            className={`w-32 h-10 rounded-md flex items-center justify-center ${
-                bgHex ? `bg-[#${bgHex}]/${bgOpacity}` : "bg-primary-white"
-            } ${textColor ? `text-[#${textColor}]` : "bg-primary-black"}`}
+            className={`w-32 h-10 rounded-md flex items-center justify-center bg-primary-white text-primary-black  mx-3 text-sm`}
         >
             {content}
         </a>
     );
 };
 
-export default Link;
+export default PrimaryLink;
