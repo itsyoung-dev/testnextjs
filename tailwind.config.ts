@@ -15,6 +15,13 @@ const config: Config = {
                 "primary-white": "#fff",
                 "secondary-gray": "#a1a1a1",
             },
+            letterSpacing: {
+                "text-default": "-2%",
+            },
+            lineHeight: {
+                "text-default": "120%",
+                header: "105.3%",
+            },
         },
     },
     plugins: [require("@headlessui/tailwindcss")],
