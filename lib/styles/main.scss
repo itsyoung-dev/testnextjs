@@ -31,84 +31,9 @@ html {
         font-family: 'Roboto', sans-serif;
     }
 
-    .icon-span {
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        position: absolute;
-        overflow: hidden;
-    }
+   .radial-gradient {
+     background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+   }
 
-    .nav-link {
-        line-height: 1.5rem;
-        font-weight: 600;
-        color: rgb(17 24 39 / 1);
-        font-size: 0.875rem;
-    }
-
-    // ON TOP OF THE LANDING PAGE ----------\/
-
-    .custom-bg-blob-parent {
-        filter: blur(64px);
-        transform: translate3d(0, 0, rotate(0), skewX(0), skewY(0), scaleX(1), scaleY(1));
-        z-index: 10;
-        left: 10rem;
-        right: 0;
-        position: absolute;
-    }
-
-    .custom-bg-blob-child {
-        clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);
-        opacity: .3;
-        --tw-gradient-to: #fcd089 var(--tw-gradient-to-position);
-        --tw-gradient-from: #ff80b5 var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-        background-image: linear-gradient(to top right, var(--tw-gradient-from), var(--tw-gradient-to));
-        transform: translate(-50%, 0) rotate(30deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
-        aspect-ratio: 1155 /678;
-        position: relative;
-        @media (min-width: 640px) {
-            width: 75rem;
-        }
-    }
-
-    // -----------/\
-    // BEHIND THE PREVIEW SCREENSHOT ----------\/
-
-    .custom-bg-bottom-parent {
-        @media (min-width: 640px) {
-            top: calc(100% - 30rem)
-        }
-        filter: blur(64px);
-        overflow: hidden;
-        transform: translate3d(0, 0, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
-        top: calc(100% - 13rem);
-        left: 0;
-        right: 0;
-        position: absolute;
-    }
-
-    .custom-bg-bottom-child {
-        opacity: 0.3;
-        clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);
-        --tw-gradient-to: #fcd089 var(--tw-gradient-to-position);
-        --tw-gradient-from: #ff80b5 var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-        background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-        transform: translate(-50%, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
-        width: 36.125rem;
-        aspect-ratio: 1155 / 678;
-        left: calc(50% + 3rem);
-        position: relative;
-        @media (min-width: 640px) {
-            left: calc(50% + 36rem);
-            width: 72.1875rem;
-        }
-    }
-
-    // -----------/\
+    
 }

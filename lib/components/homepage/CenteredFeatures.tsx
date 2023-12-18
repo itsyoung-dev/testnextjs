@@ -1,11 +1,9 @@
 import React from "react";
-import { CheckCircle, CheckCircleOutline } from "heroicons-react";
-import PrimaryLink from "../ui/PrimaryLink";
-import SecondaryLink from "../ui/SecondaryLink";
+import { CheckCircle } from "heroicons-react";
 
 const CenteredFeatures = () => {
     return (
-        <section>
+        <section className="bg-gradient-to-b from-black via-transparent to-[#0B0B0B/6]">
             <div className="py-40 flex justify-center flex-col items-center">
                 <div className="flex flex-col">
                     <p className="text-primary-blurple text-center leading-text-default tracking-text-default font-medium text-base">
@@ -21,7 +19,7 @@ const CenteredFeatures = () => {
                         cursus mauris.
                     </p>
                 </div>
-                <div className="w-1/2 mt-11 h-96 bg-black border border-white/10 rounded-md">
+                <div className="w-1/2 mt-11 h-96 bg-black border border-white/10 rounded-md bg-[url('/assets/graph.png')] bg-contain bg-[25rem_4rem] bg-no-repeat">
                     <div className="h-full flex flex-col justify-center px-10 w-[40%]">
                         <h3 className="text-primary-white leading-header text-left font-semibold text-xl">
                             Affiliate Marketing Program
