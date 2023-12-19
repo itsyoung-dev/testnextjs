@@ -35,5 +35,50 @@ html {
      background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
    }
 
+    // Main page -----------/\
+
+
+    .header-left-blob {
+        background: linear-gradient(180deg, #4E00F8 8.68%, #5A09F7 10.44%, #9533F5 30.82%, #C316FF 50.76%);
+        filter: blur(193.14999389648438px);
+
+    }
+
+    .header-right-blob {
+        background: linear-gradient(180deg, #4E00F8 46.77%, #9533F5 62.85%, #C316FF 100.11%);
+
+        filter: blur(133.0500030517578px);
+
+    }
+
+    .landingpage-filter {
+        fill: linear-gradient(178deg, rgba(88, 101, 242, 0.00) -40.51%, rgba(51, 51, 52, 0.00) 17.24%, rgba(51, 52, 53, 0.13) 55.91%);
+    }
+
+    .member-right-blob {
+        width: 200.892px;
+        height: 120.083px;
+        transform: rotate(-159.649deg);
+        flex-shrink: 0;
+        background: linear-gradient(180deg, #4E00F8 20.77%, #9533F5 40.85%, #C316FF 111.11%);
+        filter: blur(133.0500030517578px);
+    }
+
+    .member-left-blob {
+        width: 170.905px;
+        height: 220.03px;
+        flex-shrink: 0;
+        background: linear-gradient(180deg, #4E00F8 8.68%, #5A09F7 10.44%, #9533F5 30.82%, #C316FF 50.76%);
+        filter: blur(193.14999389648438px);
+    }
+
+    .linear-bg {
+        background: linear-gradient(180deg, rgba(237, 236, 236, 0.12) 0%, rgba(242, 242, 242, 0.12) 61.98%, rgba(19, 19, 19, 0.12) 100%);
+    }
+
+    .linear-bg_second {
+        background: linear-gradient(180deg, rgba(72, 72, 72, 0.07) 41.15%, rgba(37, 37, 37, 0.00) 100%), linear-gradient(180deg, rgba(72, 72, 72, 0.15) 43.75%, rgba(37, 37, 37, 0.00) 100%);        
+    }
+
     
 }
