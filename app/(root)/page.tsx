@@ -1,7 +1,19 @@
-import LandBanner from "@/lib/components/ui/LandBanner";
-import Features from "@/lib/components/ui/Features";
-import SecondaryFeatures from "@/lib/components/ui/SecondaryFeatures";
+import Footer from "@/lib/components/footers/Footer";
+import Careers from "@/lib/components/homepage/Careers";
+import Collaboration from "@/lib/components/homepage/Collaboration";
+import Header from "@/lib/components/homepage/Header";
+import Member from "@/lib/components/homepage/Member";
+import Products from "@/lib/components/homepage/Products";
+import Services from "@/lib/components/homepage/Services";
 
 export default function Page() {
-    return <></>;
+    return <>
+    <Header />
+    <Collaboration />
+    <Careers />
+    <Member />
+    <Services />
+    <Products />
+    <Footer />
+    </>;
 }
