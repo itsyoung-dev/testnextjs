@@ -25,7 +25,7 @@ const NavBar = () => {
         <header
             className={`py-8 fixed w-full top-0 ${
                 showNavbar ? "" : "bg-black/30"
-            } duration-200 ease-in-out`}
+            } duration-200 ease-in-out z-20 backdrop-blur-md`}
         >
             <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
                 <nav className="relative z-50 flex justify-between">
