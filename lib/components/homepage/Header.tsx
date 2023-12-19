@@ -2,7 +2,7 @@ import React from 'react'
 
 function Header() {
     return (
-        <section className='w-full h-[697px] relative mx-auto landingpage-filter'>
+        <section className='w-full h-[697px] relative mx-auto landingpage-filter pt-24'>
             <span className='lg:w-[300px] w-[180px] h-[200px] lg:h-[400px] left-[96px] lg:left-[76px] header-left-blob bottom-[108px] absolute'/>
             <span className='lg:w-[200px] w-[100px] h-[250px] lg:h-[300px] right-[214.5px] header-right-blob top-[68.693px] absolute'/>
             <div className='items-center pt-24 text-center max-w-xl flex flex-col mx-auto z-20'>
