@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import Logo from '../../../public/assets/tns-logo-inverted.png'
+import Logo from '../../../public/assets/tns_logo_white_black.png'
 import Link from 'next/link'
 
 interface linkProps {
