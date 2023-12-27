@@ -17,6 +17,7 @@
         "@headlessui/tailwindcss": "^0.2.0",
         "@heroicons/react": "^2.0.18",
         "@hookform/resolvers": "^3.3.3",
+        "@prisma/client": "^5.7.1",
         "@radix-ui/react-label": "^2.0.2",
         "@radix-ui/react-slot": "^1.0.2",
         "@uploadthing/react": "^6.0.2",
