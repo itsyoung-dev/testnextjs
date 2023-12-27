@@ -12,7 +12,7 @@ const Page = async () => {
         username: userInfo?.username || user?.username,
         name: userInfo?.name || userInfo?.firstName || "",
         bio: userInfo?.bio || "",
-        image: userInfo?.image || userInfo.imageURL,
+        image: userInfo?.image || user?.imageUrl,
     };
     return (
         <main className="flex py-48 flex-col">
