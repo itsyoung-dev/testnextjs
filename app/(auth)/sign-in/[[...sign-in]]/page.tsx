@@ -1,13 +1,18 @@
 import { SignIn } from "@clerk/nextjs";
 
 export const metadata = {
-    title: "Sign In - BinnenNederland"
+    title: "Sign in | The North Solution",
 };
 
 export default function Page() {
-    return <SignIn appearance={{
-        elements: {
-            formButtonPrimary: 'bg-orange-400 hover:bg-orange-500'
-        }
-    }}/>;
-};
+    return (
+        <SignIn
+            appearance={{
+                elements: {
+                    formButtonPrimary:
+                        "bg-primary-blurple hover:bg-primary-blurple",
+                },
+            }}
+        />
+    );
+}
