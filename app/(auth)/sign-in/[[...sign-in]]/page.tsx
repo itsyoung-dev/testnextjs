@@ -10,7 +10,7 @@ export default function Page() {
             appearance={{
                 elements: {
                     formButtonPrimary:
-                        "bg-primary-blurple hover:bg-primary-blurple",
+                        "bg-primary-blurple hover:bg-primary-blurple/40",
                 },
             }}
         />
