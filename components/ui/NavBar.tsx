@@ -86,7 +86,7 @@ const NavBar = () => {
                             </a>
                         </div>
                         <a
-                            href="/qqqeeaawwwwwwwwsignup"
+                            href="/signup"
                             className="group inline-flex items-center justify-center rounded-md py-1 px-4 text-sm font-normal focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-primary-blurple text-primary-white hover:opacity-80 duration-200 shadow-md shadow-primary-black/60"
                         >
                             <span>Sign up</span>
