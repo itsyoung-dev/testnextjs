@@ -1,19 +1,23 @@
+import { fetchUser } from "@/actions/user.actions";
 import AccountProfile from "@/components/forms/AccountProfile";
 import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 const Page = async () => {
     const user = await currentUser();
+    if (!user) return null;
 
-    const userInfo = {};
+    const userInfo = await fetchUser(user.id);
+    if (userInfo?.onboarded) redirect("/");
 
     const userData = {
-        id: user?.id,
-        objectId: userInfo?._id,
-        username: userInfo?.username || user?.username,
-        name: userInfo?.name || userInfo?.firstName || "",
-        bio: userInfo?.bio || "",
-        image: userInfo?.image || user?.imageUrl,
+        id: user.id,
+        username: userInfo ? userInfo?.username : user.username,
+        name: userInfo ? userInfo?.name : user.firstName ?? "",
+        bio: userInfo ? userInfo?.bio : "",
+        image: userInfo ? userInfo?.image : user.imageUrl,
     };
+
     return (
         <main className="flex py-48 flex-col">
             <div className="flex flex-col max-w-3xl">
