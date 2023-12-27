@@ -2,7 +2,7 @@
 
 import React, { ChangeEvent, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { Button } from "@/lib/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
@@ -11,15 +11,15 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/lib/components/ui/form";
-import { Textarea } from "@/lib/components/ui/textarea";
-import { Input } from "@/lib/components/ui/input";
+} from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserValidation } from "@/lib/validations/user";
 import * as z from "zod";
 import Image from "next/image";
-import { isBase64Image } from "@/lib/utils";
-import { useUploadThing } from "@/lib/hooks/uploadthing";
+import { isBase64Image } from "@/Utils/Utility";
+import { useUploadThing } from "@/hooks/uploadthing";
 
 interface Props {
     user: {

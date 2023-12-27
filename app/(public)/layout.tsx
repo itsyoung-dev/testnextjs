@@ -1,6 +1,5 @@
-
-import NavBar from '@/lib/components/ui/NavBar';
-import '@/lib/styles/main.scss';
+import NavBar from "@/components/ui/NavBar";
+import "@/lib/styles/main.scss";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,14 +7,11 @@ export const metadata: Metadata = {
     description: "Bouw snel en simpel een professionele website.",
 };
 
-
-export default function Layout({ children, }: { children: React.ReactNode; }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-
         <>
             <NavBar />
             {children}
         </>
-    )
+    );
 }
-

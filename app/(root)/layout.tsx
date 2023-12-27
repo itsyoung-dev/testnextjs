@@ -1,7 +1,7 @@
 import "@/lib/styles/main.scss";
 import type { Metadata } from "next";
 import { inter } from "@/lib/scripts/font";
-import NavBar from "@/lib/components/ui/NavBar";
+import NavBar from "@/components/ui/NavBar";
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {

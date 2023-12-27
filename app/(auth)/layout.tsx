@@ -1,8 +1,8 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { inter } from "@/lib/scripts/font";
 import "@/lib/styles/main.scss";
-import NavBar from "@/lib/components/ui/NavBar";
-import Footer from "@/lib/components/footers/Footer";
+import NavBar from "@/components/ui/NavBar";
+import Footer from "@/components/footers/Footer";
 
 export const metadata = {
     description: "The North Solution site description",
