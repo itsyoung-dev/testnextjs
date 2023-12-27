@@ -48,3 +48,11 @@ export async function updateUser({
         throw new Error(`Failed to upsert user: ${error.message}`);
     }
 }
+
+export async function fetchUser(userId: string) {
+    try {
+        return await prisma.user.findFirst({ where: { id: userId } });
+    } catch (error: any) {
+        throw new Error(`Failed to fetch user: ${error.message}`);
+    }
+}
