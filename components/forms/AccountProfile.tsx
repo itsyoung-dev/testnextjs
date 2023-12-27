@@ -18,7 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UserValidation } from "@/lib/validations/user";
 import * as z from "zod";
 import Image from "next/image";
-import { isBase64Image } from "@/Utils/Utility";
+import { isBase64Image } from "@/utils/Utility";
 import { useUploadThing } from "@/hooks/uploadthing";
 import { updateUser } from "@/actions/user.actions";
 import { usePathname, useRouter } from "next/navigation";

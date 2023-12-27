@@ -1,5 +1,6 @@
 "use client";
 import { NavLinks } from "@/constants/constants";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -77,20 +78,25 @@ const NavBar = () => {
                                 Contact
                             </a>
                         </div>
-                        <div className="hidden md:block">
+                        <SignedOut>
+                            <div className="hidden md:block">
+                                <a
+                                    href="/login"
+                                    className="inline-block rounded-md px-4 py-1 text-sm text-primary-white duration-200 bg-white/10 border border-white/10 hover:border-white/20 shadow-md shadow-black/60"
+                                >
+                                    Log in
+                                </a>
+                            </div>
                             <a
-                                href="/login"
-                                className="inline-block rounded-md px-4 py-1 text-sm text-primary-white duration-200 bg-white/10 border border-white/10 hover:border-white/20 shadow-md shadow-black/60"
+                                href="/signup"
+                                className="group inline-flex items-center justify-center rounded-md py-1 px-4 text-sm font-normal focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-primary-blurple text-primary-white hover:opacity-80 duration-200 shadow-md shadow-primary-black/60"
                             >
-                                Log in
+                                <span>Sign up</span>
                             </a>
-                        </div>
-                        <a
-                            href="/signup"
-                            className="group inline-flex items-center justify-center rounded-md py-1 px-4 text-sm font-normal focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-primary-blurple text-primary-white hover:opacity-80 duration-200 shadow-md shadow-primary-black/60"
-                        >
-                            <span>Sign up</span>
-                        </a>
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton afterSignOutUrl="/" />
+                        </SignedIn>
                         <div className="-mr-1 md:hidden"></div>
                     </div>
                 </nav>
