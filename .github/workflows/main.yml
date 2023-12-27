@@ -36,8 +36,8 @@ jobs:
           host: ${{ secrets.HOST_IP }}
           username: ${{ secrets.HOST_USERNAME }}
           script: |
-            pm2 delete all
+            pm2 stop 0
             cd /home/${{ secrets.HOST_USERNAME }}/tnssite
             git pull
             npm install
-            pm2 start "npm run dev" --name "tns-site"
+            pm2 start 0
