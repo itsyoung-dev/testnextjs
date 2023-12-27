@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "@/Utils/Utility";
+import { prisma } from "@/utils/Utility";
 import { revalidatePath } from "next/cache";
 
 interface Params {
