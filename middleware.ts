@@ -6,7 +6,10 @@ export default authMiddleware({
         "/earn-with-us(.*)",
         "/courses(.*)",
         "/affiliate-program(.*)",
+        "/onboarding(.*)",
+        "/api/webhook/clerk",
     ],
+    ignoredRoutes: ["/api/webhook/clerk"],
 });
 
 export const config = {
