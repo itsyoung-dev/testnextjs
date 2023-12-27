@@ -8,6 +8,13 @@ const config: Config = {
         "./lib/components/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
+        container: {
+            center: true,
+            padding: "2rem",
+            screens: {
+                "2xl": "1400px",
+            },
+        },
         extend: {
             colors: {
                 "primary-blurple": "#5865F2",
@@ -22,9 +29,26 @@ const config: Config = {
                 "text-default": "120%",
                 header: "105.3%",
             },
+            keyframes: {
+                "accordion-down": {
+                    from: { height: "0" },
+                    to: { height: "var(--radix-accordion-content-height)" },
+                },
+                "accordion-up": {
+                    from: { height: "var(--radix-accordion-content-height)" },
+                    to: { height: "0" },
+                },
+            },
+            animation: {
+                "accordion-down": "accordion-down 0.2s ease-out",
+                "accordion-up": "accordion-up 0.2s ease-out",
+            },
         },
     },
-    plugins: [require("@headlessui/tailwindcss")],
+    plugins: [
+        require("@headlessui/tailwindcss"),
+        require("tailwindcss-animate"),
+    ],
 };
 export default config;
 
