@@ -1,6 +1,6 @@
-import "@/lib/styles/main.scss";
+import "@/public/styles/main.scss";
 import type { Metadata } from "next";
-import { inter } from "@/lib/scripts/font";
+import { inter } from "@/constants/font";
 import NavBar from "@/components/ui/NavBar";
 import { ClerkProvider } from "@clerk/nextjs";
 

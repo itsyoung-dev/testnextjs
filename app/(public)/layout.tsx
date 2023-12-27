@@ -1,5 +1,5 @@
 import NavBar from "@/components/ui/NavBar";
-import "@/lib/styles/main.scss";
+import "@/public/styles/main.scss";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

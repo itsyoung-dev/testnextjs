@@ -1,4 +1,4 @@
-import "@/lib/styles/main.scss";
+import "@/public/styles/main.scss";
 import NavBar from "@/components/ui/NavBar";
 import type { Metadata } from "next";
 

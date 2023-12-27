@@ -1,6 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
-import { inter } from "@/lib/scripts/font";
-import "@/lib/styles/main.scss";
+import { inter } from "@/constants/font";
+import "@/public/styles/main.scss";
 import NavBar from "@/components/ui/NavBar";
 import Footer from "@/components/footers/Footer";
 
