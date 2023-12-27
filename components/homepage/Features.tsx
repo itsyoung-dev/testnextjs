@@ -1,7 +1,7 @@
 "use client";
 import React, { Fragment } from "react";
 import { Tab } from "@headlessui/react";
-import { FeatureImages } from "@/lib/scripts/constants";
+import { FeatureImages } from "@/constants/constants";
 
 const Features = () => {
     return (

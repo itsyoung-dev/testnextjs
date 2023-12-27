@@ -1,6 +1,7 @@
 "use client";
-import { NavLinks } from "@/lib/scripts/constants";
+import { NavLinks } from "@/constants/constants";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const NavBar = () => {
@@ -30,14 +31,14 @@ const NavBar = () => {
             <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
                 <nav className="relative z-50 flex justify-between">
                     <div className="flex items-center md:gap-x-12">
-                        <a href="">
+                        <Link href="/">
                             <Image
                                 src={"/assets/tns_logo_white_transparent.png"}
                                 alt="Logo"
                                 width={35}
                                 height={35}
                             />
-                        </a>
+                        </Link>
                         <div className="hidden md:flex md:gap-x-5">
                             {NavLinks.map((link) => (
                                 <React.Fragment key={link.key}>
