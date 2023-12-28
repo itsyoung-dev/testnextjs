@@ -7,6 +7,7 @@ export default authMiddleware({
         "/courses(.*)",
         "/affiliate-program(.*)",
         "/login(.*)",
+        "/reset-password(.*)",
         "/api/webhook/clerk",
     ],
     ignoredRoutes: ["/api/webhook/clerk"],
