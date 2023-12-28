@@ -32,7 +32,11 @@ const legalLinks: linkProps[] = [
 
 const today = new Date(Date.now()).getFullYear();
 
-function Footer(tBorder?: boolean) {
+interface Props {
+    tBorder: boolean;
+}
+
+function Footer({ tBorder }: Props) {
     return (
         <div className="w-full h-full spacing-default">
             <div className="md:flex-row md:items-start flex-col items-center flex pt-10 pb-2 border-b border-primary-white/10">
