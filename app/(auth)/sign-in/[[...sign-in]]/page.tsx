@@ -1,18 +1,17 @@
-import { SignIn } from "@clerk/nextjs";
+import { useState } from "react";
+import { useSignIn } from "@clerk/nextjs";
+import { useRouter } from "next/router";
 
 export const metadata = {
     title: "Sign in | The North Solution",
 };
 
 export default function Page() {
-    return (
-        <SignIn
-            appearance={{
-                elements: {
-                    formButtonPrimary:
-                        "bg-primary-blurple hover:bg-primary-blurple/40",
-                },
-            }}
-        />
-    );
+    const { isLoaded, signIn } = useSignIn();
+
+    if (!isLoaded) {
+        // Handle loading state
+        return null;
+    }
+    return <main></main>;
 }
