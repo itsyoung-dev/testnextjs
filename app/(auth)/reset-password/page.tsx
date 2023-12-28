@@ -99,14 +99,14 @@ const SignInPage: NextPage = () => {
                             </p>
                         )}
                         <form
-                            className="flex flex-col pt-14"
+                            className="account-form_wrapper pt-14"
                             onSubmit={!successfulCreation ? create : reset}
                         >
                             {!successfulCreation && !complete && (
                                 <>
                                     <label
                                         htmlFor="email"
-                                        className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2 focus:outline-none"
+                                        className="account-form_label"
                                     >
                                         Your email address
                                     </label>
@@ -120,7 +120,7 @@ const SignInPage: NextPage = () => {
                                         className="account-form_input"
                                     />
 
-                                    <button className="w-full bg-primary-blurple hover:bg-primary-blurple/70 duration-200 text-primary-white h-[40px] mt-[17px] rounded-md leading-text-default tracking-text-default font-normal text-[15px]">
+                                    <button className="account-form_submit">
                                         Reset your password
                                     </button>
                                 </>
@@ -130,7 +130,7 @@ const SignInPage: NextPage = () => {
                                 <>
                                     <label
                                         htmlFor="password"
-                                        className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2 focus:outline-none"
+                                        className="account-form_label"
                                     >
                                         New password
                                     </label>
@@ -146,7 +146,7 @@ const SignInPage: NextPage = () => {
 
                                     <label
                                         htmlFor="password"
-                                        className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2 pt-3 focus:outline-none"
+                                        className="account-form_label"
                                     >
                                         Reset password code
                                     </label>
@@ -160,7 +160,7 @@ const SignInPage: NextPage = () => {
                                         className="account-form_input"
                                     />
 
-                                    <button className="w-full bg-primary-blurple hover:bg-primary-blurple/70 duration-200 text-primary-white h-[40px] mt-[17px] rounded-md leading-text-default tracking-text-default font-normal text-[15px]">
+                                    <button className="account-form_submit">
                                         Reset
                                     </button>
                                 </>

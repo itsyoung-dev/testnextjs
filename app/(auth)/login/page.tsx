@@ -32,7 +32,7 @@ export default function SignInForm() {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
-    // start the sign In process.
+
     const form = useForm<z.infer<typeof UserValidation>>({
         resolver: zodResolver(UserValidation),
         defaultValues: {
@@ -58,7 +58,7 @@ export default function SignInForm() {
                 await setActive({ session: result.createdSessionId });
                 router.push("/");
             } else {
-                /*Investigate why the login hasn't completed */
+                //TODO Investigate why the login hasn't completed
                 console.log(result);
             }
         } catch (err: any) {
@@ -87,8 +87,6 @@ export default function SignInForm() {
             });
         };
 
-        // Render a button for each supported OAuth provider
-        // you want to add to your app
         return (
             <button
                 className="border border-white/10 rounded-md h-14 w-full hover:bg-white/10 duration-200"
@@ -119,7 +117,7 @@ export default function SignInForm() {
                         <form className="pt-10">
                             <div className="flex flex-col">
                                 <label
-                                    className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2 focus:outline-none"
+                                    className="account-form_label"
                                     htmlFor="email"
                                 >
                                     Email address
@@ -136,7 +134,7 @@ export default function SignInForm() {
                             </div>
                             <div className="flex flex-col pt-[22px]">
                                 <label
-                                    className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2"
+                                    className="account-form_label"
                                     htmlFor="email"
                                 >
                                     Password
@@ -162,7 +160,7 @@ export default function SignInForm() {
                             </div>
                             <button
                                 onClick={handleEmailSubmit}
-                                className="w-full bg-primary-blurple hover:bg-primary-blurple/70 duration-200 text-primary-white h-[40px] mt-[17px] rounded-md leading-text-default tracking-text-default font-normal text-[15px]"
+                                className="account-form_submit"
                             >
                                 Sign in
                             </button>
