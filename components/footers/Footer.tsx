@@ -18,7 +18,6 @@ const companyLinks: linkProps[] = [
     { name: "About", href: "/" },
     { name: "Membership", href: "/" },
     { name: "Jobs", href: "/" },
-    { name: "Hosting", href: "/" },
 ];
 const communityLinks: linkProps[] = [
     { name: "Youtube", href: "/" },
@@ -33,25 +32,25 @@ const legalLinks: linkProps[] = [
 
 const today = new Date(Date.now()).getFullYear();
 
-function Footer() {
+function Footer(tBorder?: boolean) {
     return (
-        <div className="w-full h-[371px] mx-6 lg:mx-auto">
-            <div className="mt-10 lg:mx-[200px] flex items-center justify-center border-b-[1px] border-primary-white/10">
-                <div className="lg:pr-[150px]">
+        <div className="w-full h-full spacing-default">
+            <div className="md:flex-row md:items-start flex-col items-center flex pt-10 pb-2 border-b border-primary-white/10">
+                <div className="md:w-2/5 w-4/5 md:text-left text-center flex flex-col md:items-start items-center pb-8">
                     <Image alt="logo" src={Logo} className="w-10 h-10" />
-                    <p className="mt-5 text-secondary-gray text-sm max-w-[265px]">
+                    <p className="pt-3 text-secondary-gray text-sm max-w-[265px]">
                         Making the world a better place through constructing
                         elegant hierarchies.
                     </p>
                 </div>
-                <div className="flex gap-6 md:gap-16 lg:gap-28 mb-8 text-xs md:text-sm flex-wrap">
+                <div className="flex justify-between md:w-[45%] w-full md:gap-12 lg:gap-24 mb-8 text-xs md:text-sm flex-wrap">
                     <div className="  text-white flex flex-col gap-2">
                         <h5>
                             <strong>Solutions</strong>
                         </h5>
                         {solutionLinks.sort().map((link) => (
                             <Link
-                                className="text-[#A1A1A1]"
+                                className="text-[#A1A1A1] hover:text-primary-white duration-200"
                                 href={link.href}
                                 key={link.name}
                             >
@@ -65,7 +64,7 @@ function Footer() {
                         </h5>
                         {companyLinks.sort().map((link) => (
                             <Link
-                                className="text-[#A1A1A1]"
+                                className="text-[#A1A1A1] hover:text-primary-white duration-200"
                                 href={link.href}
                                 key={link.name}
                             >
@@ -79,7 +78,7 @@ function Footer() {
                         </h5>
                         {communityLinks.sort().map((link) => (
                             <Link
-                                className="text-[#A1A1A1]"
+                                className="text-[#A1A1A1] hover:text-primary-white duration-200"
                                 href={link.href}
                                 key={link.name}
                             >
@@ -93,7 +92,7 @@ function Footer() {
                         </h5>
                         {legalLinks.sort().map((link) => (
                             <Link
-                                className="text-[#A1A1A1]"
+                                className="text-[#A1A1A1] hover:text-primary-white duration-200"
                                 href={link.href}
                                 key={link.name}
                             >
@@ -103,7 +102,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <p className="lg:ml-48 max-w-[360px] text-sm text-secondary-gray mt-8">
+            <p className="mx-auto max-w-[1440px] text-sm text-secondary-gray py-8">
                 © {today} The North Solution. All rights reserved.
             </p>
         </div>
