@@ -36,6 +36,18 @@ html {
   @apply outline-none border-primary-blurple border-2;
 } 
 
+.account-form_label {
+  @apply text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2 focus:outline-none;
+}
+
+.account-form_wrapper {
+  @apply flex flex-col;
+}
+
+.account-form_submit {
+  @apply w-full bg-primary-blurple hover:bg-primary-blurple/70 duration-200 text-primary-white h-[40px] mt-[17px] rounded-md leading-text-default tracking-text-default font-normal text-[15px];
+}
+
 @layer components {
 
     .font-display {
@@ -101,6 +113,7 @@ html {
       font-size: 14px;
       padding-left: 1rem;
     }
+
 }
 
 @layer utilities {
