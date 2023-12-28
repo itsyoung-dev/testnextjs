@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useSignIn } from "@clerk/nextjs";
+import { AuthenticateWithRedirectCallback, useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,6 +17,15 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Footer from "@/components/ui/Footer";
+import Link from "next/link";
+import { OAuthStrategy } from "@clerk/nextjs/server";
+import Image from "next/image";
+
+interface Props {
+    strategy: OAuthStrategy;
+    provider: string;
+    logoUrl: string;
+}
 
 export default function SignInForm() {
     const { isLoaded, signIn, setActive } = useSignIn();
@@ -32,7 +41,7 @@ export default function SignInForm() {
         },
     });
 
-    const handleSubmit = async (e: any) => {
+    const handleEmailSubmit = async (e: any) => {
         e.preventDefault();
         if (!isLoaded) {
             return;
@@ -57,9 +66,51 @@ export default function SignInForm() {
         }
     };
 
+    const signInWith = async (strategy: OAuthStrategy) => {
+        return await signIn?.authenticateWithRedirect({
+            strategy,
+            redirectUrl: "/sso-callback",
+            redirectUrlComplete: "/",
+        });
+    };
+
+    function SignInOAuthButtons({ strategy, provider, logoUrl }: Props) {
+        const { signIn } = useSignIn();
+
+        if (!signIn) return;
+
+        const signInWith = (strategy: OAuthStrategy) => {
+            return signIn.authenticateWithRedirect({
+                strategy,
+                redirectUrl: "/sso-callback",
+                redirectUrlComplete: "/",
+            });
+        };
+
+        // Render a button for each supported OAuth provider
+        // you want to add to your app
+        return (
+            <button
+                className="border border-white/10 rounded-md h-14 w-full hover:bg-white/10 duration-200"
+                onClick={() => signInWith(strategy)}
+            >
+                <div className="flex justify-center text-primary-white items-center gap-x-2">
+                    <img
+                        src={logoUrl}
+                        className="h-[17px] w-auto"
+                        alt="Provider Logo"
+                    />
+                    <p className="font-normal text-sm tracking-text-default pt-[3px]">
+                        {provider}
+                    </p>
+                </div>
+            </button>
+        );
+    }
+
     return (
         <>
-            <main className="h-screen w-full bg-gradient-to-b from-black to-[101010]">
+            <main className="h-[90vh] w-full bg-gradient-to-b from-black to-[#101010]/30">
                 <div className="h-full flex flex-col items-center justify-center">
                     <div>
                         <h1 className="text-white text-center leading-header tracking-text-default text-[28px] font-bold">
@@ -100,8 +151,46 @@ export default function SignInForm() {
                                     className="account-form_input"
                                 />
                             </div>
-                            <button onClick={handleSubmit}>Sign In</button>
+                            <div className="flex w-full flex-row-reverse pt-[18px]">
+                                <Link
+                                    href={"/reset-password"}
+                                    className="text-primary-blurple hover:text-primary-blurple/80 duration-200 leading-text-default tracking-text-default font-bold text-[13px]"
+                                >
+                                    {" "}
+                                    Forgot password?
+                                </Link>
+                            </div>
+                            <button
+                                onClick={handleEmailSubmit}
+                                className="w-full bg-primary-blurple hover:bg-primary-blurple/70 duration-200 text-primary-white h-[40px] mt-[17px] rounded-md leading-text-default tracking-text-default font-normal text-[15px]"
+                            >
+                                Sign in
+                            </button>
+                            <div className="mt-[47px] flex items-center justify-between w-full">
+                                <span className="bg-white/10 h-[1px] w-[28%]" />
+                                <p className="text-primary-white tracking-text-default leading-text-default text-sm font-normal">
+                                    Or continue with
+                                </p>
+                                <span className="bg-white/10 h-[1px] w-[28%]" />
+                            </div>
                         </form>
+                        <div className="mt-[31px] flex gap-[25px]">
+                            <SignInOAuthButtons
+                                strategy="oauth_google"
+                                provider="Google"
+                                logoUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png"
+                            />
+                            <SignInOAuthButtons
+                                strategy="oauth_github"
+                                provider="Github"
+                                logoUrl="https://static-00.iconduck.com/assets.00/github-icon-2048x1988-jzvzcf2t.png"
+                            />
+                            <SignInOAuthButtons
+                                strategy="oauth_discord"
+                                provider="Discord"
+                                logoUrl="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png"
+                            />
+                        </div>
                     </div>
                 </div>
             </main>
