@@ -16,6 +16,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import Footer from "@/components/ui/Footer";
 
 export default function SignInForm() {
     const { isLoaded, signIn, setActive } = useSignIn();
@@ -57,49 +58,54 @@ export default function SignInForm() {
     };
 
     return (
-        <main className="h-screen w-full bg-gradient-to-b from-black to-[101010]">
-            <div className="h-full flex flex-col items-center justify-center">
-                <div>
-                    <h1 className="text-white text-center leading-header tracking-text-default text-[28px] font-bold">
-                        Log in to your account
-                    </h1>
-                    <form className="pt-10">
-                        <div className="flex flex-col">
-                            <label
-                                className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2 focus:outline-none"
-                                htmlFor="email"
-                            >
-                                Email address
-                            </label>
-                            <input
-                                onChange={(e) =>
-                                    setEmailAddress(e.target.value)
-                                }
-                                id="email"
-                                name="email"
-                                type="email"
-                                className="account-form_input"
-                            />
-                        </div>
-                        <div className="flex flex-col pt-[22px]">
-                            <label
-                                className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2"
-                                htmlFor="email"
-                            >
-                                Password
-                            </label>
-                            <input
-                                onChange={(e) => setPassword(e.target.value)}
-                                id="password"
-                                name="password"
-                                type="password"
-                                className="account-form_input"
-                            />
-                        </div>
-                        <button onClick={handleSubmit}>Sign In</button>
-                    </form>
+        <>
+            <main className="h-screen w-full bg-gradient-to-b from-black to-[101010]">
+                <div className="h-full flex flex-col items-center justify-center">
+                    <div>
+                        <h1 className="text-white text-center leading-header tracking-text-default text-[28px] font-bold">
+                            Log in to your account
+                        </h1>
+                        <form className="pt-10">
+                            <div className="flex flex-col">
+                                <label
+                                    className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2 focus:outline-none"
+                                    htmlFor="email"
+                                >
+                                    Email address
+                                </label>
+                                <input
+                                    onChange={(e) =>
+                                        setEmailAddress(e.target.value)
+                                    }
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    className="account-form_input"
+                                />
+                            </div>
+                            <div className="flex flex-col pt-[22px]">
+                                <label
+                                    className="text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2"
+                                    htmlFor="email"
+                                >
+                                    Password
+                                </label>
+                                <input
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    className="account-form_input"
+                                />
+                            </div>
+                            <button onClick={handleSubmit}>Sign In</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+            <Footer tBorder={true} />
+        </>
     );
 }

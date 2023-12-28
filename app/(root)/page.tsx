@@ -1,4 +1,4 @@
-import Footer from "@/components/footers/Footer";
+import Footer from "@/components/ui/Footer";
 import Careers from "@/components/homepage/Careers";
 import Collaboration from "@/components/homepage/Collaboration";
 import Header from "@/components/homepage/Header";
@@ -15,7 +15,7 @@ export default function Page() {
             <Member />
             <Services />
             <Products />
-            <Footer />
+            <Footer tBorder={false} />
         </>
     );
 }
