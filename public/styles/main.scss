@@ -25,6 +25,10 @@ html {
     @apply py-5 px-6 xl:px-24 gap-4 flex items-center w-full justify-between;
 }
 
+.spacing-default {
+  @apply max-w-[1440px] px-4 sm:px-6 lg:px-8 mx-auto;
+}
+
 @layer components {
 
     .font-display {
@@ -80,7 +84,13 @@ html {
         background: linear-gradient(180deg, rgba(72, 72, 72, 0.07) 41.15%, rgba(37, 37, 37, 0.00) 100%), linear-gradient(180deg, rgba(72, 72, 72, 0.15) 43.75%, rgba(37, 37, 37, 0.00) 100%);        
     }
 
-    
+    .account-form_input {
+      background-color: #0a0a0a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 405px;
+      height: 40px;
+      border-radius: 6px;
+    }
 }
 
 @layer utilities {
