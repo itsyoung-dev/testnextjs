@@ -19,6 +19,9 @@ html {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
 }
 
 .navbar {
@@ -28,6 +31,10 @@ html {
 .spacing-default {
   @apply max-w-[1440px] px-4 sm:px-6 lg:px-8 mx-auto;
 }
+
+.account-form_input:focus{
+  @apply outline-none border-primary-blurple border-2;
+} 
 
 @layer components {
 
@@ -90,6 +97,9 @@ html {
       width: 405px;
       height: 40px;
       border-radius: 6px;
+      color: white;
+      font-size: 14px;
+      padding-left: 1rem;
     }
 }
 
