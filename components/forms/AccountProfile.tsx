@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ChangeEvent, useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
     Form,
@@ -15,7 +15,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UserValidation } from "@/lib/validations/user";
+import { UserValidation } from "@/lib/validations/userPrebuilt";
 import * as z from "zod";
 import Image from "next/image";
 import { isBase64Image } from "@/utils/Utility";
