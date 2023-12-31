@@ -1,6 +1,7 @@
 import "@/public/styles/main.scss";
 import NavBar from "@/components/ui/NavBar";
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
     title: "The North Solution | Affiliate Program",
@@ -41,8 +42,10 @@ export default function RootLayout({
                 <meta name="theme-color" content="#ffffff" />
             </head>
             <body>
-                <NavBar />
-                {children}
+                <ClerkProvider>
+                    <NavBar />
+                    {children}
+                </ClerkProvider>
             </body>
         </html>
     );
