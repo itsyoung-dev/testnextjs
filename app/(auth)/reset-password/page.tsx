@@ -1,6 +1,6 @@
 "use client";
 import React, { SyntheticEvent, useState } from "react";
-import { useSignIn } from "@clerk/nextjs";
+import { useSignIn, useUser } from "@clerk/nextjs";
 import type { NextPage } from "next";
 import Footer from "@/components/ui/Footer";
 import toast, { Toaster } from "react-hot-toast";
@@ -12,11 +12,12 @@ const SignInPage: NextPage = () => {
     const [code, setCode] = useState("");
     const [successfulCreation, setSuccessfulCreation] = useState(false);
     const [complete, setComplete] = useState(false);
-    const [errorState, setErrorState] = useState(false);
-    const [secondFactor, setSecondFactor] = useState(false);
     const router = useRouter();
 
     const { isLoaded, signIn, setActive } = useSignIn();
+    const { user } = useUser();
+
+    if (user && !user.passwordEnabled) router.back();
 
     if (!isLoaded) {
         return null;
@@ -48,13 +49,13 @@ const SignInPage: NextPage = () => {
             })
             .then((result) => {
                 if (result.status === "needs_second_factor") {
-                    setSecondFactor(true);
                     toast.error(
                         "2FA is required, this UI does not handle that."
                     );
                 } else if (result.status === "complete") {
                     setActive({ session: result.createdSessionId });
                     toast.success("You succesfully changed your password.");
+                    setComplete(true);
                     router.push("/login");
                 } else {
                     console.log(result);
