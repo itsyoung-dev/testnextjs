@@ -1,48 +1,57 @@
+import Link from "next/link";
 import React from "react";
 
 function Header() {
     return (
-        <section className="w-full h-[697px] relative mx-auto landingpage-filter pt-24">
-            <span className="lg:w-[300px] w-[180px] h-[200px] lg:h-[400px] left-[96px] lg:left-[76px] header-left-blob bottom-[108px] absolute" />
-            <span className="lg:w-[200px] w-[100px] h-[250px] lg:h-[300px] right-[214.5px] header-right-blob top-[68.693px] absolute" />
-            <div className="items-center pt-24 text-center max-w-xl flex flex-col mx-auto z-20">
-                <h1 className="font-extrabold text-4xl max-w-md pb-8 text-primary-white">
-                    Create, collaborate,<br></br> grow, launch
+        <section className="w-full h-[750px] relative mx-auto landingpage-filter pt-28 border-b border-white/10">
+            <div className="items-center pt-24 text-center max-w-xl flex flex-col mx-auto z-20 gap-y-10">
+                <h1 className="text-5xl font-bold text-center text-primary-white leading-header launch-fade">
+                    Create, collaborate,<br></br>grow, launch
                 </h1>
-                <p className="font-semibold text-secondary-gray mx-6 lg:w-[580px] h-[80px] text-base">
+                <p className="font-normal text-secondary-gray mx-6 lg:w-[580px] text-base">
                     We have faith in the ability to create, work together,
                     evolve, and introduce ideas that have an impact. Come start
                     your success with us right now.
                 </p>
             </div>
-            <div className="flex items-center justify-center gap-4 pt-10 md:pt-6 text-sm">
-                <button className="w-28 h-10 text-primary-black rounded-md bg-white hover:bg-white/70 font-semibold">
-                    Get Started
-                </button>
-                <button className="w-28 h-10 rounded-md text-primary-white bg-white/10 font-semibold">
-                    Learn More
-                </button>
+            <div className="flex items-center justify-center gap-4 pt-12 text-sm">
+                <Link
+                    href={"/"}
+                    className="w-[114px] h-11 text-primary-black rounded-md bg-white hover:bg-white/70 font-normal flex items-center justify-center"
+                >
+                    Get started
+                </Link>
+                <Link
+                    href={"/"}
+                    className="w-[114px] h-11 rounded-md text-primary-white bg-white/10 font-normal flex items-center justify-center hover:bg-white/20"
+                >
+                    Learn more
+                </Link>
             </div>
-            <div className="lg:w-[547px]lg:h-[271px] flex gap-2 md:gap-6 lg:gap-10 pt-20 items-center justify-center mx-auto">
+            <div className="lg:w-[547px]lg:h-[271px] flex gap-2 md:gap-6 lg:gap-10 pt-44 items-center justify-center mx-auto">
                 <span>
-                    <h3 className="text-primary-white text-lg font-semibold">
+                    <h3 className="text-primary-white text-[24px] font-medium tracking-text-default leading-text-default">
                         146+
                     </h3>
-                    <p className="text-secondary-gray text-xs">projects done</p>
+                    <p className="text-secondary-gray text-[13px] pt-2.5">
+                        projects done
+                    </p>
                 </span>
-                <div className="w-[0.6px] h-14 bg-gray-800 mx-4" />
+                <div className="w-[0.6px] h-16 bg-white/10 mx-4" />
                 <span>
-                    <h3 className="text-primary-white text-lg font-semibold">
-                        100M+
+                    <h3 className="text-primary-white text-[24px] font-medium tracking-text-default leading-text-default">
+                        100m+
                     </h3>
-                    <p className="text-secondary-gray text-xs">lines written</p>
+                    <p className="text-secondary-gray text-[13px] pt-2.5">
+                        lines written
+                    </p>
                 </span>
-                <div className="w-[0.6px] h-14 bg-gray-800 mx-4" />
+                <div className="w-[0.6px] h-16 bg-white/10 mx-4" />
                 <span>
-                    <h3 className="text-primary-white text-lg font-semibold">
+                    <h3 className="text-primary-white text-[24px] font-medium tracking-text-default leading-text-default">
                         10+
                     </h3>
-                    <p className="text-secondary-gray text-xs">
+                    <p className="text-secondary-gray text-[13px] pt-2.5">
                         years experience
                     </p>
                 </span>
