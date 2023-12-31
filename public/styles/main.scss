@@ -48,10 +48,21 @@ html {
   @apply w-full bg-primary-blurple hover:bg-primary-blurple/70 duration-200 text-primary-white h-[40px] mt-[17px] rounded-md leading-text-default tracking-text-default font-normal text-[15px];
 }
 
+.cl-internal-11ewti4 {
+  @apply w-9 h-9;
+}
+
 @layer components {
 
     .font-display {
         font-family: 'Roboto', sans-serif;
+    }
+
+    .launch-fade {
+
+      color: #ffffff; background-image: -webkit-linear-gradient(0deg, #ffffff 0%, #ffffff 32%, #37323d 100%); background-clip: text; -webkit-background-clip: text; text-fill-color: transparent; -webkit-text-fill-color: transparent;
+          
+        
     }
 
    .radial-gradient {
@@ -62,7 +73,7 @@ html {
 
 
     .header-left-blob {
-        background: linear-gradient(180deg, #4E00F8 8.68%, #5A09F7 10.44%, #9533F5 30.82%, #C316FF 50.76%);
+        background: linear-gradient(180deg, #4E00F8 8.68%, #5A09F7 10.44%, #9533F5 60.82%, #C316FF 50.76%);
         filter: blur(193.14999389648438px);
 
     }
@@ -76,7 +87,10 @@ html {
 
     .landingpage-filter {
         fill: linear-gradient(178deg, rgba(88, 101, 242, 0.00) -40.51%, rgba(51, 51, 52, 0.00) 17.24%, rgba(51, 52, 53, 0.13) 55.91%);
-    }
+        background-image: url('/assets/Banner.png');
+        background-size: cover;
+        background-repeat: no-repeat
+      }
 
     .member-right-blob {
         width: 200.892px;
