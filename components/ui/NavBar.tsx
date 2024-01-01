@@ -84,7 +84,7 @@ const NavBar = () => {
                         <SignedOut>
                             <div className="hidden md:block">
                                 <a
-                                    href="/login"
+                                    href="/contact"
                                     className="inline-block rounded-lg px-2 py-1 text-sm text-secondary-gray hover:text-primary-white/[88%] duration-200"
                                 >
                                     Contact
