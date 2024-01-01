@@ -1,25 +1,14 @@
 "use client";
 import { useState } from "react";
-import { AuthenticateWithRedirectCallback, useSignIn } from "@clerk/nextjs";
+import { useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserValidation } from "@/lib/validations/user";
 import * as z from "zod";
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import Footer from "@/components/ui/Footer";
 import Link from "next/link";
 import { OAuthStrategy } from "@clerk/nextjs/server";
-import Image from "next/image";
 
 interface Props {
     strategy: OAuthStrategy;
