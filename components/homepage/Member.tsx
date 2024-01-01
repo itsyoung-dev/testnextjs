@@ -3,15 +3,15 @@ import Link from "next/link";
 
 function Member() {
     return (
-        <section className="w-full h-[292px] overflow-clip pt-20 mx-auto p-16 relative z-10 bg-black border-t-[1px] border-b-[1px] border-primary-white/10">
-            <div className="member-right-blob absolute left-20 top-[160px] spacing-default" />
-            <div className="member-left-blob absolute right-[300px] bottom-[120.693px]" />
-            <div className="flex justify-center md:justify-between w-full spacing-default">
+        <section className="w-full h-[292px] overflow-clip mx-auto p-16 relative z-10 bg-black border-t-[1px] border-b-[1px] border-primary-white/10 bg-[url('/assets/CTA.png')] bg-cover bg-no-repeat flex items-center">
+            {/* <div className="member-right-blob absolute left-20 top-[160px] spacing-default" />
+            <div className="member-left-blob absolute right-[300px] bottom-[120.693px]" /> */}
+            <div className="flex justify-center md:justify-between w-full spacing-default items-center">
                 <div className="z-10 flex flex-col gap-4 md:text-left">
-                    <h2 className="text-4xl font-bold text-primary-white">
+                    <h2 className="text-[40px] font-bold text-primary-white tracking-text-default leading-text-default">
                         Become a member
                     </h2>
-                    <p className="mt-4 text-sm text-secondary-gray max-w-[609px] font-semibold">
+                    <p className="mt-1 text-[17px] text-secondary-gray max-w-[609px] font-normal tracking-text-default leading-text-default">
                         Launch your career with confidence. Join us today for
                         exciting opportunities and a pathway to professional
                         success.
