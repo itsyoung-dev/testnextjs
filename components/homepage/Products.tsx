@@ -19,7 +19,7 @@ const Products = () => {
                     excellence and impact.
                 </p>
             </div>
-            <div className="mt-6 linear-bg_second rounded-t-lg border-[0.1px] border-b-0 border-[white/10] max-w-[1156px] h-[420px] mb-20 p-6 mx-6 lg:mx-0">
+            <div className="mt-6 linear-bg_second rounded-t-lg border-[0.1px] border-b-0 border-primary-white/10 max-w-[1156px] h-[420px] mb-20 p-6 mx-6 lg:mx-0">
                 <div className="flex gap-4 ">
                     <Link href={"/link-to-gt"}>
                         <svg
