@@ -58,11 +58,19 @@ html {
         font-family: 'Roboto', sans-serif;
     }
 
-    .launch-fade {
+    .gradient-background {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background: linear-gradient(to bottom, black, #0a0a0a);
+    }
 
-      color: #ffffff; background-image: -webkit-linear-gradient(0deg, #ffffff 0%, #ffffff 32%, #37323d 100%); background-clip: text; -webkit-background-clip: text; text-fill-color: transparent; -webkit-text-fill-color: transparent;
-          
-        
+    .launch-fade {
+      color: #ffffff; background-image: -webkit-linear-gradient(0deg, #ffffff 0%, #ffffff 44%, #37323d 100%); background-clip: text; -webkit-background-clip: text; text-fill-color: transparent; -webkit-text-fill-color: transparent;
     }
 
    .radial-gradient {
@@ -110,7 +118,7 @@ html {
     }
 
     .linear-bg {
-        background: linear-gradient(180deg, rgba(237, 236, 236, 0.12) 0%, rgba(242, 242, 242, 0.12) 61.98%, rgba(19, 19, 19, 0.12) 100%);
+        background: linear-gradient(180deg, #161616 0%, #1313131f 100%);
     }
 
     .linear-bg_second {
