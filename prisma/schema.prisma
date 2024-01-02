@@ -8,6 +8,8 @@ datasource db {
     shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
+// schema.prisma
+
 model User {
     id       String  @id @unique
     username String  @unique
@@ -15,5 +17,14 @@ model User {
     image    String?
     bio      String?
 
-    onboarded Boolean @default(false)
+    onboarded  Boolean     @default(false)
+    membership Membership?
+}
+
+model Membership {
+    id              Int      @id @default(autoincrement())
+    user            User     @relation(fields: [userId], references: [id])
+    userId          String   @unique
+    subscribedSince DateTime @default(now())
+    type            String
 }
