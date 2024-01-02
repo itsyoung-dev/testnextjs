@@ -8,6 +8,7 @@ export default authMiddleware({
         "/earn-with-us(.*)",
         "/courses(.*)",
         "/affiliate-program(.*)",
+        "/members(.*)",
         // auth
         "/login(.*)",
         "/signup(.*)",
