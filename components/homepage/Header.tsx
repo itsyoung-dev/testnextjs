@@ -28,7 +28,7 @@ function Header() {
                     Learn more
                 </Link>
             </div>
-            <div className="lg:w-[547px]lg:h-[271px] flex gap-2 md:gap-6 lg:gap-10 pt-[13.5rem] items-center justify-center mx-auto">
+            <div className="lg:w-[547px] lg:h-[271px] flex gap-2 md:gap-6 lg:gap-10 pt-[13.5rem] items-center justify-center mx-auto">
                 <span>
                     <h3 className="text-primary-white text-[24px] font-medium tracking-text-default leading-text-default">
                         146+
