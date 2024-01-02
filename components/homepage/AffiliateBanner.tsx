@@ -1,6 +1,6 @@
 import React from "react";
-import PrimaryLink from "../ui/PrimaryLink";
 import SecondaryLink from "../ui/SecondaryLink";
+import Link from "next/link";
 
 const AffiliateBanner = () => {
     return (
@@ -21,7 +21,17 @@ const AffiliateBanner = () => {
                             that is made.
                         </p>
                         <div className="flex">
-                            <PrimaryLink href="/" content="Join now" />
+                            <Link
+                                className="w-32 h-10 rounded-md flex items-center justify-center bg-primary-white text-primary-black mx-3 text-sm"
+                                href={{
+                                    pathname: "/signup",
+                                    query: {
+                                        type: "affiliate",
+                                    },
+                                }}
+                            >
+                                Join now
+                            </Link>
                             <SecondaryLink href="/" content="Read more" />
                         </div>
                     </div>
