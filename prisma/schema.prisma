@@ -11,20 +11,65 @@ datasource db {
 // schema.prisma
 
 model User {
-    id       String  @id @unique
-    username String  @unique
-    name     String
-    image    String?
-    bio      String?
-
-    onboarded  Boolean     @default(false)
-    membership Membership?
+    id               String       @id @unique
+    explorer         Boolean      @default(true)
+    member           Boolean      @default(false)
+    membership       Membership?
+    hostingClient    Boolean      @default(false)
+    hostingPlan      HostingPlan?
+    webClient        Boolean      @default(false)
+    webPlan          WebPlan?
+    courseClient     Boolean      @default(false)
+    courses          Courses[]
+    affiliate        Boolean      @default(false)
+    affiliateDetails Affiliates?
 }
 
 model Membership {
-    id              Int      @id @default(autoincrement())
+    id              String   @id @unique
     user            User     @relation(fields: [userId], references: [id])
     userId          String   @unique
     subscribedSince DateTime @default(now())
+    amount          Int
     type            String
+}
+
+model HostingPlan {
+    id              String    @id @unique
+    user            User      @relation(fields: [userId], references: [id])
+    userId          String    @unique
+    subscribedSince DateTime  @default(now())
+    nextDueDate     DateTime?
+    amount          Int
+    type            String
+    custom          Boolean
+}
+
+model WebPlan {
+    id              String    @id @unique
+    user            User      @relation(fields: [userId], references: [id])
+    userId          String    @unique
+    subscribedSince DateTime  @default(now())
+    nextDueDate     DateTime?
+    amount          Int
+    type            String
+    custom          Boolean
+}
+
+model Courses {
+    id              String    @id @unique
+    user            User      @relation(fields: [userId], references: [id])
+    userId          String    @unique
+    subscribedSince DateTime  @default(now())
+    nextDueDate     DateTime?
+    amount          Int
+    type            String
+    custom          Boolean
+}
+
+model Affiliates {
+    id           String @id @unique
+    user         User   @relation(fields: [userId], references: [id])
+    userId       String @unique
+    referralLink String @unique
 }
