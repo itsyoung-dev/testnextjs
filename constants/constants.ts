@@ -26,7 +26,12 @@ export const NavLinks = [
         text: "Affiliate",
         flyout: false,
     },
-    { href: "/", key: "Membership", text: "Membership", flyout: false },
+    {
+        href: "/membership",
+        key: "Membership",
+        text: "Membership",
+        flyout: false,
+    },
     { href: "/", key: "About", text: "About", flyout: false },
 ];
 
