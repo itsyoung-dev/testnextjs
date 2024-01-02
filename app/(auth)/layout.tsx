@@ -3,15 +3,44 @@ import { inter } from "@/constants/font";
 import "@/public/styles/main.scss";
 import NavBar from "@/components/ui/NavBar";
 import { dark } from "@clerk/themes";
+import { Metadata } from "next";
 
-export const metadata = {
-    description: "The North Solution site description",
+export const metadata: Metadata = {
+    title: "The North Solution | Auth",
+    description: "Bouw snel en simpel een professionele website.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <ClerkProvider appearance={{ baseTheme: dark }}>
             <html lang="en">
+                <head>
+                    <link
+                        rel="apple-touch-icon"
+                        sizes="180x180"
+                        href="assets/icons/apple-touch-icon.png"
+                    />
+                    <link
+                        rel="icon"
+                        type="image/png"
+                        sizes="32x32"
+                        href="assets/icons//favicon-32x32.png"
+                    />
+                    <link
+                        rel="icon"
+                        type="image/png"
+                        sizes="16x16"
+                        href="assets/icons//favicon-16x16.png"
+                    />
+                    <link rel="manifest" href="assets/icons/site.webmanifest" />
+                    <link
+                        rel="mask-icon"
+                        href="assets/icons/safari-pinned-tab.svg"
+                        color="#5bbad5"
+                    />
+                    <meta name="msapplication-TileColor" content="#da532c" />
+                    <meta name="theme-color" content="#ffffff" />
+                </head>
                 <body className={inter.className}>
                     <div className="">
                         <NavBar />
