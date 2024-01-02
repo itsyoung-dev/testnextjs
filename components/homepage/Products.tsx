@@ -5,21 +5,21 @@ import reciple from "../../public/assets/reciplejs.png";
 
 const Products = () => {
     return (
-        <section className="w-full h-full lg:h-[844px] px-6 mt-40 lg:mt-0 items-center justify-center flex flex-col">
-            <div className=" h-[156px] mb-20 mx-8 md:text-center lg:mx-auto">
-                <h5 className="text-[#5865F2] font-semibold pb-6 text-xs">
+        <section className="w-full h-full lg:h-[844px] px-6 pt-60 pb-32 lg:mt-0 items-center justify-center flex flex-col">
+            <div className="h-[156px] mb-12 mx-8 md:text-center lg:mx-auto">
+                <h5 className="text-primary-blurple font-medium tracking-text-default leading-header pb-5 text-base">
                     Products
                 </h5>
-                <h2 className="font-bold text-4xl text-primary-white mb-4">
+                <h2 className="text-[40px] font-semibold text-primary-white pb-4 leading-text-default">
                     Make use of the products we publish
                 </h2>
-                <p className="text-sm text-secondary-gray md:text-center max-w-[600px]">
+                <p className="text-secondary-gray pb-8 tracking-text-default leading-text-default text-base max-w-[600px]">
                     Explore innovation with our products. Elevate your
                     experiencewith cutting edge solutions designed for
                     excellence and impact.
                 </p>
             </div>
-            <div className="mt-6 linear-bg_second rounded-t-lg border-[0.1px] border-b-0 border-primary-white/10 max-w-[1156px] h-[420px] mb-20 p-6 mx-6 lg:mx-0">
+            <div className="mt-6 linear-bg_second rounded-t-[25px] border border-b-0 border-primary-white/10 max-w-[1156px] h-[420px] mb-20 p-8 mx-6 lg:mx-0">
                 <div className="flex gap-4 ">
                     <Link href={"/link-to-gt"}>
                         <svg
@@ -35,48 +35,50 @@ const Products = () => {
                             />
                         </svg>
                     </Link>
-                    <span className="w-auto h-6 px-3 flex bg-green-500 text-white items-center justify-center rounded-md text-xs">
-                        Open-sourced
+                    <span className="w-auto h-6 px-3 flex bg-[#2DB46E] text-white items-center justify-center rounded-md text-xs font-medium">
+                        open-sourced
                     </span>
                 </div>
                 <Image
                     alt="reciplejs"
-                    className="w-auto lg:w-[988px] h-auto lg:h-[200px] mx-auto pt-8 object-fill"
+                    className="w-auto lg:w-[988px] h-auto lg:h-[200px] mx-auto pt-8 px-12 object-fill"
                     src={reciple}
                 />
 
-                <div className="flex flex-col pt-6">
-                    <h3 className="pt-16 text-2xl font-bold text-primary-white">
-                        Enhance your discord.js experience
-                    </h3>
-                    <span className=" items-center justify-between hidden md:flex">
-                        <p className="w-[735px] text-xs text-secondary-gray mt-3">
-                            A project made by The North Solution. Use our
-                            open-sourced discord.js framework to seamlessly
-                            handle commands, interactions, command halts,
-                            cooldowns and more!
-                        </p>
-                        <Link
-                            href={"/link-to-site"}
-                            className="h-10 w-[125px] bg-primary-white items-center justify-center flex text-primary-black text-sm rounded-md"
-                        >
-                            View website
-                        </Link>
-                    </span>
-                    <span className=" flex flex-col md:hidden">
-                        <p className="max-w-[735px] mt-4 text-xs text-secondary-gray">
-                            A project made by The North Solution. Use our
-                            open-sourced discord.js framework to seamlessly
-                            handle commands, interactions, command halts,
-                            cooldowns and more!
-                        </p>
-                        <Link
-                            href={"/link-to-site"}
-                            className="h-10 mt-4 w-[120px] bg-primary-white text-xs items-center justify-center flex text-primary-black rounded-md"
-                        >
-                            View website
-                        </Link>
-                    </span>
+                <div className="mt-6 relative max-w-[1054px] mx-auto">
+                    <div className="flex flex-col pt-6 relative z-10">
+                        <h3 className="pt-2 text-3xl font-semibold text-primary-white">
+                            Enhance your discord.js experience
+                        </h3>
+                        <span className=" items-center justify-between hidden md:flex">
+                            <p className="w-[735px] text-[15px] text-secondary-gray mt-3">
+                                A project made by The North Solution. Use our
+                                open-sourced discord.js framework to seamlessly
+                                handle commands, interactions, command halts,
+                                cooldowns and more!
+                            </p>
+                            <Link
+                                href={"/link-to-site"}
+                                className="h-10 w-[125px] mb-4 bg-primary-white items-center justify-center flex text-primary-black text-sm rounded-md hover:opacity-80"
+                            >
+                                View website
+                            </Link>
+                        </span>
+                        <span className="flex flex-col md:hidden">
+                            <p className="max-w-[735px] mt-4 text-xs text-secondary-gray">
+                                A project made by The North Solution. Use our
+                                open-sourced discord.js framework to seamlessly
+                                handle commands, interactions, command halts,
+                                cooldowns and more!
+                            </p>
+                            <Link
+                                href={"/link-to-site"}
+                                className="h-10 mt-4 w-[120px] bg-primary-white text-xs items-center justify-center flex text-primary-black rounded-md"
+                            >
+                                View website
+                            </Link>
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>

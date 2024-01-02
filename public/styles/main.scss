@@ -54,9 +54,21 @@ html {
 
 @layer components {
 
-    .font-display {
-        font-family: 'Roboto', sans-serif;
-    }
+  .font-display {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .service-card 
+  .service-card-image {
+    filter: grayscale(100%);
+    transition-duration: 200ms;
+  }
+
+  .service-card:hover 
+  .service-card-image {
+    filter: grayscale(0%);
+  }
+
 
     .gradient-background {
       content: "";
@@ -118,7 +130,7 @@ html {
     }
 
     .linear-bg {
-        background: linear-gradient(180deg, #161616 0%, #1313131f 100%);
+        background: linear-gradient(180deg, #080808 0%, #0000 100%);
     }
 
     .linear-bg_second {

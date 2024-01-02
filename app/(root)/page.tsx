@@ -15,7 +15,7 @@ export default function Page() {
             <Member />
             <Services />
             <Products />
-            <Footer tBorder={false} />
+            <Footer tBorder={true} />
         </>
     );
 }

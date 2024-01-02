@@ -18,13 +18,13 @@ function Member() {
                     </p>
                     <div className="md:hidden z-10 gap-4 ml-10 text-sm items-center justify-center flex">
                         <Link
-                            className="w-[153px] items-center flex justify-center h-[41px] bg-primary-white rounded-md text-primary-black"
+                            className="w-[153px] items-center flex justify-center h-[41px] bg-primary-white rounded-md text-primary-black hover:opacity-80"
                             href={"/"}
                         >
                             Subscribe now
                         </Link>
                         <Link
-                            className="w-[153px] items-center flex justify-center h-[41px] bg-primary-white/10 rounded-md border-[1px] border-primary-white/10 text-primary-white"
+                            className="w-[153px] items-center flex justify-center h-[41px] bg-primary-white/10 rounded-md border-[1px] text-primary-white hover:border-white/20 "
                             href={"/"}
                         >
                             See benefits

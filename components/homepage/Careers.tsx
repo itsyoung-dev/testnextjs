@@ -17,7 +17,7 @@ interface MarketingCardProps {
 
 function Careers() {
     return (
-        <section className="w-full h-auto pb-32 mt-[250px] md:mt-0 bg-gradient-to-b from-black to-[#0a0a0aaa]">
+        <section className="w-full h-auto pb-32 mt-[100px] bg-gradient-to-b from-black to-[#0a0a0aaa]">
             <div className="spacing-default">
                 <div className="justify-center lg:mx-auto flex flex-col items-center mx-6">
                     <div className="max-w-[781px] h-[156px] text-center flex flex-col items-center justify-center mx-6 lg:mx-0">
@@ -73,7 +73,7 @@ function MarketingCard({
 }: MarketingCardProps) {
     return (
         <Link href={href}>
-            <article className="h-[335px] max-w-sm rounded-[25px] border border-primary-white/10 bg-[#050505] hover:bg-[#090909] duration-200">
+            <article className="h-[335px] max-w-sm rounded-[25px] border border-primary-white/10 bg-[#050505] hover:bg-[#0b0b0b] duration-200">
                 <div className="px-10 py-5">
                     <div className=" mt-6 justify-between flex items-center">
                         <span className="w-11 h-11 rounded-full text-black flex bg-white items-center justify-center">
