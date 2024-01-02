@@ -28,7 +28,6 @@ const Page = async () => {
                         Complete your profile now to get started.
                     </p>
                 </div>
-
                 <section className="mt-9 bg-white/10 p-10">
                     <AccountProfile user={userData} btnTitle="Continue" />
                 </section>
