@@ -8,7 +8,7 @@ const page = () => {
                 href={{
                     pathname: "/signup",
                     query: {
-                        type: "hosting",
+                        type: "web",
                         custom: true,
                     },
                 }}
