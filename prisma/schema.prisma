@@ -8,10 +8,16 @@ datasource db {
     shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
-// schema.prisma
+enum UserRole {
+    ADMIN
+    MANAGER
+    STAFF
+    USER
+}
 
 model User {
     id               String       @id @unique
+    role             UserRole     @default(USER)
     explorer         Boolean      @default(true)
     member           Boolean      @default(false)
     membership       Membership?
