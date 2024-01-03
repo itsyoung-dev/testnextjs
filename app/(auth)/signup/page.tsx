@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth, useSignUp } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
 import Footer from "@/components/ui/Footer";
@@ -29,46 +29,55 @@ export default function SignUpForm() {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
     const [pendingVerification, setPendingVerification] = useState(false);
+    const [type, setType] = useState("explorer");
+    const [userInfo, setUserInfo] = useState({ type });
     const [code, setCode] = useState("");
     const router = useRouter();
+    const searchParam = useSearchParams();
 
     const state = useAuth();
     if (state.isLoaded && state.isSignedIn) {
         router.push("/");
     }
 
-    const getUserInfo = async (): Promise<UserInfo> => {
-        const searchParam = useSearchParams();
-        let type: string = searchParam.get("type") || "explorer";
+    useEffect(() => {
+        const typeFromQueryParam: string =
+            searchParam.get("type") || "explorer";
+        setType(typeFromQueryParam);
+    }, []);
 
-        let userInfo: UserInfo = { type };
+    useEffect(() => {
+        const updateUserInfo = () => {
+            let newUserInfo: UserInfo = { type };
 
-        if (
-            type === "membership" ||
-            (type === "web" && searchParam.get("plan"))
-        ) {
-            userInfo.plan = searchParam.get("plan")!;
-        }
+            if (
+                type === "membership" ||
+                (type === "web" && searchParam.get("plan"))
+            ) {
+                newUserInfo.plan = searchParam.get("plan")!;
+            }
 
-        if (
-            type === "hosting" &&
-            searchParam.get("config1") &&
-            searchParam.get("config2") &&
-            searchParam.get("config3")
-        ) {
-            userInfo.config = {
-                config1: searchParam.get("config1")!,
-                config2: searchParam.get("config2")!,
-                config3: searchParam.get("config3")!,
-            };
-        }
+            if (
+                type === "hosting" &&
+                searchParam.get("config1") &&
+                searchParam.get("config2") &&
+                searchParam.get("config3")
+            ) {
+                newUserInfo.config = {
+                    config1: searchParam.get("config1")!,
+                    config2: searchParam.get("config2")!,
+                    config3: searchParam.get("config3")!,
+                };
+            }
 
-        return userInfo;
-    };
+            if (type === "affiliate") {
+            }
 
-    getUserInfo().then((res) => {
-        console.log(res);
-    });
+            setUserInfo(newUserInfo);
+        };
+
+        updateUserInfo();
+    }, [type, searchParam]);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -98,7 +107,6 @@ export default function SignUpForm() {
         }
     };
 
-    // This verifies the user using email code that is delivered.
     const onPressVerify = async (e: any) => {
         e.preventDefault();
         if (!isLoaded) {
@@ -115,19 +123,20 @@ export default function SignUpForm() {
                 console.log(JSON.stringify(completeSignUp, null, 2));
             }
             if (completeSignUp.status === "complete") {
-                await setActive({ session: completeSignUp.createdSessionId });
-                if (completeSignUp.createdUserId) {
+                if (!completeSignUp.createdUserId) return router.push("/");
+                console.log(completeSignUp.id);
+                try {
                     await prisma.user.create({
                         data: {
                             id: completeSignUp.createdUserId,
-
-                            member: false,
-                            hostingClient: false,
-                            webClient: false,
                         },
                     });
+                    await setActive({
+                        session: completeSignUp.createdSessionId,
+                    });
+                } catch (error) {
+                    console.log(JSON.stringify(completeSignUp, null, 2));
                 }
-                router.push("/");
             }
         } catch (err: any) {
             console.error(JSON.stringify(err, null, 2));
@@ -189,7 +198,7 @@ export default function SignUpForm() {
                                     <div className="flex gap-x-[23px]">
                                         <div className="account-form_wrapper pt-[22px]">
                                             <label
-                                                htmlFor="email"
+                                                htmlFor="name"
                                                 className="account-form_label"
                                             >
                                                 Name{" "}
@@ -198,14 +207,14 @@ export default function SignUpForm() {
                                                 </span>
                                             </label>
                                             <input
-                                                onChange={(e) =>
-                                                    setEmailAddress(
-                                                        e.target.value
-                                                    )
-                                                }
-                                                id="email"
-                                                name="email"
-                                                type="email"
+                                                // onChange={(e) =>
+                                                //     setEmailAddress(
+                                                //         e.target.value
+                                                //     )
+                                                // }
+                                                id="name"
+                                                name="name"
+                                                type="name"
                                                 className="account-form_input !w-[190px]"
                                             />
                                         </div>
