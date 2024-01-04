@@ -4,8 +4,8 @@ import { useAuth, useSignUp } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
 import Footer from "@/components/ui/Footer";
 import { OAuthStrategy } from "@clerk/nextjs/server";
-import { prisma } from "@/utils/Utility";
 import toast, { Toaster } from "react-hot-toast";
+import { createUser } from "@/actions/user.actions";
 
 interface Props {
     strategy: OAuthStrategy;
@@ -124,12 +124,10 @@ export default function SignUpForm() {
             }
             if (completeSignUp.status === "complete") {
                 if (!completeSignUp.createdUserId) return router.push("/");
-                console.log(completeSignUp.id);
                 try {
-                    await prisma.user.create({
-                        data: {
-                            id: completeSignUp.createdUserId,
-                        },
+                    await createUser({
+                        userId: completeSignUp.createdUserId,
+                        options: userInfo,
                     });
                     await setActive({
                         session: completeSignUp.createdSessionId,
