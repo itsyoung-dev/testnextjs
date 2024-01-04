@@ -16,7 +16,6 @@ export default authMiddleware({
         "/reset-password(.*)",
         "/sso-callback(.*)",
         // api
-        "/api/webhook/clerk",
         "/api/clerk",
     ],
     ignoredRoutes: ["/api/webhook/clerk"],
