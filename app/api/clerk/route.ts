@@ -22,6 +22,8 @@ export async function POST(request: Request) {
     //     "svix-signature": header.get("svix-signature"),
     // };
 
+    // console.log(heads);
+
     // const wh = new Webhook(process.env.NEXT_CLERK_WEBHOOK_SECRET || "");
 
     // let evnt: Event | null = null;
@@ -31,6 +33,8 @@ export async function POST(request: Request) {
     //         JSON.stringify(payload),
     //         heads as IncomingHttpHeaders & WebhookRequiredHeaders
     //     ) as Event;
+
+    //     console.log(evnt);
     // } catch (err) {
     //     return Response.json({ message: err }, { status: 400 });
     // }
@@ -38,6 +42,7 @@ export async function POST(request: Request) {
     // const eventType: EventType = evnt?.type!;
 
     // if (eventType === "user.deleted") {
+    // const { id } = evnt?.data ?? {};
     const id = payload.data.id;
 
     try {
@@ -51,6 +56,6 @@ export async function POST(request: Request) {
             { message: "Internal Server Error" },
             { status: 500 }
         );
-        // }
     }
+    // }
 }
