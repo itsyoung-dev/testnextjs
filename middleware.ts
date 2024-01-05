@@ -18,7 +18,7 @@ export default authMiddleware({
         // api
         "/api/clerk",
     ],
-    ignoredRoutes: ["/api/webhook/clerk"],
+    ignoredRoutes: ["/api/clerk"],
 });
 
 export const config = {
