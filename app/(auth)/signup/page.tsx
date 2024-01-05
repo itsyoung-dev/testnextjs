@@ -194,11 +194,9 @@ export default function SignUpForm() {
                                                 </span>
                                             </label>
                                             <input
-                                                // onChange={(e) =>
-                                                //     setEmailAddress(
-                                                //         e.target.value
-                                                //     )
-                                                // }
+                                                onChange={(e) =>
+                                                    setName(e.target.value)
+                                                }
                                                 id="name"
                                                 name="name"
                                                 type="name"
