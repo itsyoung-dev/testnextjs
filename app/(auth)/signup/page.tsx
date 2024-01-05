@@ -27,6 +27,7 @@ interface UserInfo {
 export default function SignUpForm() {
     const { isLoaded, signUp, setActive } = useSignUp();
     const [emailAddress, setEmailAddress] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [pendingVerification, setPendingVerification] = useState(false);
     const [type, setType] = useState("explorer");
