@@ -173,18 +173,6 @@ export default function SignUpForm() {
 
     return (
         <>
-            <Toaster
-                position="top-center"
-                toastOptions={{
-                    style: { background: "#0f0f0f", color: "#fff" },
-                    success: {
-                        duration: 3000,
-                    },
-                    error: {
-                        duration: 5000,
-                    },
-                }}
-            />
             <main className="h-[90vh] w-full bg-gradient-to-b from-black to-[#101010]/30">
                 <div className="h-full flex flex-col items-center justify-center">
                     {!pendingVerification && (
