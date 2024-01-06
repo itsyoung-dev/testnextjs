@@ -1,3 +1,5 @@
+"use client";
+import { prisma } from "@/utils/Utility";
 import Link from "next/link";
 import React from "react";
 

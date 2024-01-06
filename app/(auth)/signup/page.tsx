@@ -4,8 +4,8 @@ import { useAuth, useSignUp } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
 import Footer from "@/components/ui/Footer";
 import { OAuthStrategy } from "@clerk/nextjs/server";
-import { prisma } from "@/utils/Utility";
 import toast, { Toaster } from "react-hot-toast";
+import { createUser } from "@/actions/user.actions";
 
 interface Props {
     strategy: OAuthStrategy;
@@ -27,6 +27,7 @@ interface UserInfo {
 export default function SignUpForm() {
     const { isLoaded, signUp, setActive } = useSignUp();
     const [emailAddress, setEmailAddress] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [pendingVerification, setPendingVerification] = useState(false);
     const [type, setType] = useState("explorer");
@@ -124,12 +125,10 @@ export default function SignUpForm() {
             }
             if (completeSignUp.status === "complete") {
                 if (!completeSignUp.createdUserId) return router.push("/");
-                console.log(completeSignUp.id);
                 try {
-                    await prisma.user.create({
-                        data: {
-                            id: completeSignUp.createdUserId,
-                        },
+                    await createUser({
+                        userId: completeSignUp.createdUserId,
+                        options: userInfo,
                     });
                     await setActive({
                         session: completeSignUp.createdSessionId,
@@ -174,18 +173,6 @@ export default function SignUpForm() {
 
     return (
         <>
-            <Toaster
-                position="top-center"
-                toastOptions={{
-                    style: { background: "#0f0f0f", color: "#fff" },
-                    success: {
-                        duration: 3000,
-                    },
-                    error: {
-                        duration: 5000,
-                    },
-                }}
-            />
             <main className="h-[90vh] w-full bg-gradient-to-b from-black to-[#101010]/30">
                 <div className="h-full flex flex-col items-center justify-center">
                     {!pendingVerification && (
@@ -207,11 +194,9 @@ export default function SignUpForm() {
                                                 </span>
                                             </label>
                                             <input
-                                                // onChange={(e) =>
-                                                //     setEmailAddress(
-                                                //         e.target.value
-                                                //     )
-                                                // }
+                                                onChange={(e) =>
+                                                    setName(e.target.value)
+                                                }
                                                 id="name"
                                                 name="name"
                                                 type="name"

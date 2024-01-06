@@ -14,10 +14,11 @@ export default authMiddleware({
         "/login(.*)",
         "/signup(.*)",
         "/reset-password(.*)",
+        "/sso-callback(.*)",
         // api
-        "/api/webhook/clerk",
+        "/api/clerk",
     ],
-    ignoredRoutes: ["/api/webhook/clerk"],
+    ignoredRoutes: ["/api/clerk"],
 });
 
 export const config = {

@@ -4,6 +4,7 @@ import "@/public/styles/main.scss";
 import NavBar from "@/components/ui/NavBar";
 import { dark } from "@clerk/themes";
 import { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
     title: "The North Solution | Auth",
@@ -44,6 +45,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <body className={inter.className}>
                     <div className="">
                         <NavBar />
+                        <Toaster
+                            position="top-center"
+                            toastOptions={{
+                                style: { background: "#0f0f0f", color: "#fff" },
+                                success: {
+                                    duration: 3000,
+                                },
+                                error: {
+                                    duration: 5000,
+                                },
+                            }}
+                        />
                         {children}
                     </div>
                 </body>
