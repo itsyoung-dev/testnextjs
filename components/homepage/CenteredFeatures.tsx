@@ -3,7 +3,7 @@ import { CheckCircle } from "heroicons-react";
 
 const CenteredFeatures = () => {
     return (
-        <section className="bg-gradient-to-b from-black via-transparent to-[#0B0B0B/6]">
+        <section className="bg-gradient-to-b from-black via-transparent to-[#0B0B0B]">
             <div className="py-40 flex justify-center flex-col items-center">
                 <div className="flex flex-col">
                     <p className="text-primary-blurple text-center leading-text-default tracking-text-default font-medium text-base">
@@ -19,8 +19,12 @@ const CenteredFeatures = () => {
                         cursus mauris.
                     </p>
                 </div>
-                <div className="w-1/2 mt-11 h-96 bg-black border border-white/10 rounded-md bg-[url('/assets/graph.png')] bg-contain bg-[25rem_4rem] bg-no-repeat">
-                    <div className="h-full flex flex-col justify-center px-10 w-[40%]">
+                <div className="w-1/2 mt-11 h-96 bg-black border border-white/10 rounded-md relative overflow-hidden bg-gradient-to-l from-transparent via-white/5 to-transparent">
+                    <div className="w-full h-full absolute flex justify-center">
+                        <div className="w-[45%] h-[65%] -translate-y-[60%] bg-white filter blur-3xl rounded-full opacity-5"></div>
+                    </div>
+                    <div className="bg-[url('/assets/graph.png')] bg-contain bg-[25rem_4rem] bg-no-repeat absolute inset-0"></div>
+                    <div className="h-full flex flex-col justify-center px-10 w-[40%] relative z-[1]">
                         <h3 className="text-primary-white leading-header text-left font-semibold text-xl">
                             Affiliate Marketing Program
                         </h3>

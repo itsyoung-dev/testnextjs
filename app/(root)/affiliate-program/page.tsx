@@ -1,5 +1,8 @@
 import AffiliateBanner from "@/components/homepage/AffiliateBanner";
+import CTA from "@/components/homepage/CTA";
 import CenteredFeatures from "@/components/homepage/CenteredFeatures";
+import FrequentlyAskedQuestions from "@/components/homepage/FrequentlyAskedQuestions";
+import Footer from "@/components/ui/Footer";
 import React from "react";
 
 const AffiliatePage = () => {
@@ -7,6 +10,9 @@ const AffiliatePage = () => {
         <>
             <AffiliateBanner />
             <CenteredFeatures />
+            <FrequentlyAskedQuestions />
+            <CTA />
+            <Footer tBorder />
         </>
     );
 };
