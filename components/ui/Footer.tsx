@@ -34,14 +34,16 @@ const today = new Date(Date.now()).getFullYear();
 
 interface Props {
     tBorder: boolean;
+    bgBlack?: boolean;
 }
 
-function Footer({ tBorder }: Props) {
+function Footer({ tBorder, bgBlack }: Props) {
     return (
         <footer
-            className={`w-full h-full ${
-                tBorder ? "border-t border-white/10" : ""
-            }`}
+            className={`w-full h-full
+             ${tBorder ? "border-t border-white/10" : ""}
+             ${bgBlack ? "bg-black" : ""}
+            `}
         >
             <div className={`w-full h-full spacing-default`}>
                 <div className="md:flex-row md:items-start flex-col items-center flex pt-16 pb-2 border-b border-primary-white/10">
