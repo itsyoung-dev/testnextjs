@@ -7,7 +7,14 @@ import { OAuthStrategy } from "@clerk/nextjs/server";
 import toast, { Toaster } from "react-hot-toast";
 import { z } from "zod";
 import { SignupValidation } from "@/lib/validations/signup";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "../ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Social } from "./Social";
@@ -77,6 +84,7 @@ export const SignupForm = () => {
                                                         className="account-form_input focus-visible:ring-0 !w-[190px]"
                                                     />
                                                 </FormControl>
+                                                <FormMessage />
                                             </FormItem>
                                         )}
                                     />
@@ -98,6 +106,7 @@ export const SignupForm = () => {
                                                         className="account-form_input focus-visible:ring-0 !w-[190px]"
                                                     />
                                                 </FormControl>
+                                                <FormMessage />
                                             </FormItem>
                                         )}
                                     />
@@ -124,6 +133,7 @@ export const SignupForm = () => {
                                                     className="account-form_input focus-visible:ring-0"
                                                 />
                                             </FormControl>
+                                            <FormMessage />
                                         </FormItem>
                                     )}
                                 />
@@ -148,6 +158,7 @@ export const SignupForm = () => {
                                                     className="account-form_input focus-visible:ring-0"
                                                 />
                                             </FormControl>
+                                            <FormMessage />
                                         </FormItem>
                                     )}
                                 />
