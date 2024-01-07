@@ -12,7 +12,29 @@ export const {
     signIn,
     signOut,
 } = NextAuth({
+    pages: {
+        signIn: "/login",
+        error: "/error",
+    },
+    events: {
+        async linkAccount({ user }) {
+            await prisma.user.update({
+                where: { id: user.id },
+                data: { emailVerified: new Date() },
+            });
+        },
+    },
     callbacks: {
+        async signIn({ user, account }) {
+            if (account?.provider !== "credentials") return true;
+            const existingUser = await getUserById({ userId: user.id });
+
+            if (!existingUser?.emailVerified) return false;
+
+            // TODO: Add 2FA check
+
+            return true;
+        },
         async session({ token, session }) {
             if (token.sub && session.user) session.user.id = token.sub;
 
