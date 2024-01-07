@@ -4,11 +4,7 @@ import MembersTiers from "@/components/members/MembersTiers";
 import TabsTiersAbout from "@/components/members/TabsTiersAbout";
 import Footer from "@/components/ui/Footer";
 
-export default function Members({
-    searchParams,
-}: {
-    searchParams: { tab: string };
-}) {
+export const Member = ({ searchParams }: { searchParams: { tab: string } }) => {
     return (
         <div>
             <BannerNorth />
@@ -44,4 +40,4 @@ export default function Members({
             <Footer tBorder />
         </div>
     );
-}
+};
