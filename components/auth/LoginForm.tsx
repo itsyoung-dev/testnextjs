@@ -1,13 +1,18 @@
 "use client";
 import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
-import Footer from "@/components/ui/Footer";
 import Link from "next/link";
-import { OAuthStrategy } from "@clerk/nextjs/server";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { z } from "zod";
 import { LoginValidation } from "@/lib/validations/login";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "../ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Social } from "./Social";
@@ -15,13 +20,6 @@ import { login } from "@/actions/auth.actions";
 import { Input } from "../ui/input";
 
 export const LoginForm = () => {
-    const searchParams = useSearchParams();
-    const callbackUrl = searchParams.get("callbackUrl");
-    const urlError =
-        searchParams.get("error") === "OAuthAccountNotLinked"
-            ? "Email already in use with different provider!"
-            : "";
-
     const [showTwoFactor, setShowTwoFactor] = useState(false);
     const [isPending, startTransition] = useTransition();
 
@@ -36,11 +34,16 @@ export const LoginForm = () => {
     const onSubmit = (values: z.infer<typeof LoginValidation>) => {
         startTransition(() => {
             login(values).then((data) => {
-                if (data.error) toast.error(data.error);
-                if (data.success) toast.success(data.success);
+                if (data?.error) toast.error(data.error);
+                if (data?.success) toast.success(data.success);
             });
         });
     };
+
+    // const searchParams = useSearchParams();
+    // searchParams.get("error") === "OAuthAccountNotLinked"
+    //     ? toast.error("Email already in use with different provider!")
+    //     : ""; // TODO: fix error handling
 
     return (
         <>
@@ -73,6 +76,7 @@ export const LoginForm = () => {
                                                             className="account-form_input focus-visible:ring-0"
                                                         />
                                                     </FormControl>
+                                                    <FormMessage />
                                                 </FormItem>
                                             )}
                                         />
@@ -99,6 +103,7 @@ export const LoginForm = () => {
                                                                 className="account-form_input focus-visible:ring-0"
                                                             />
                                                         </FormControl>
+                                                        <FormMessage />
                                                     </FormItem>
                                                 )}
                                             />
@@ -122,6 +127,7 @@ export const LoginForm = () => {
                                                                 className="account-form_input focus-visible:ring-0"
                                                             />
                                                         </FormControl>
+                                                        <FormMessage />
                                                     </FormItem>
                                                 )}
                                             />
