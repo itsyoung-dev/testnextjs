@@ -1,20 +1,30 @@
 "use server";
 import { prisma } from "@/utils/Utility";
 
-interface SearchParams {
-    userId: string;
-}
-
 interface CreationParams {
     userId: string;
     options: object;
 }
 
-export async function getUserInfoById({ userId }: SearchParams) {
+export async function getUserById({ userId }: { userId: string }) {
     try {
-        const user = await prisma.user.findFirst({
+        const user = await prisma.user.findUnique({
             where: {
                 id: userId,
+            },
+        });
+
+        return user;
+    } catch (error: any) {
+        throw new Error(`Failed to fetch user: ${error.message}`);
+    }
+}
+
+export async function getUserByEmail({ email }: { email: string }) {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                email: email,
             },
         });
 
@@ -38,7 +48,7 @@ export async function createUser({ userId, options }: CreationParams) {
     }
 }
 
-export async function deleteUser({ userId }: SearchParams) {
+export async function deleteUser({ userId }: { userId: string }) {
     try {
         await prisma.user.delete({
             where: {
