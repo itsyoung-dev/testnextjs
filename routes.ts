@@ -6,18 +6,17 @@
 export const publicRoutes = [
     // pages
     "/",
-    "/earn-with-us(.*)",
-    "/courses(.*)",
-    "/affiliate-program(.*)",
-    "/members(.*)",
-    "/services/web(.*)",
+    "/earn-with-us",
+    "/courses",
+    "/affiliate-program",
+    "/members",
+    "/services/web",
     // auth
-    "/login(.*)",
-    "/signup(.*)",
-    "/reset-password(.*)",
-    "/sso-callback(.*)",
+    "/login",
+    "/signup",
+    "/reset-password",
+    "/new-verification",
     // api
-    "/api/clerk",
 ];
 
 /**
