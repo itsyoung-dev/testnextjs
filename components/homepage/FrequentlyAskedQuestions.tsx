@@ -27,7 +27,7 @@ export default function FrequentlyAskedQuestions() {
                 </div>
                 <div className="grid grid-cols-3 w-[70%] gap-y-16 gap-x-24 place-items-center">
                     {FAQ.map((faq, index) => (
-                        <div className="flex flex-col">
+                        <div className="flex flex-col" key={index}>
                             <h3 className="text-white mb-2">{faq.question}</h3>
                             <p className="text-secondary-gray max-w-xs text-sm">
                                 {faq.answer}
