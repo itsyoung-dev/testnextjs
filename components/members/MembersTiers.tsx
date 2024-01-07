@@ -82,7 +82,7 @@ const tiers: TierCardProps[] = [
         ],
         name: "Pro",
         price: 10,
-        priceAnnually: 75,
+        priceAnnually: 100,
         tag: "Most Popular",
     },
     {
@@ -96,6 +96,6 @@ const tiers: TierCardProps[] = [
         ],
         name: "Committed Supporter",
         price: 15,
-        priceAnnually: 75,
+        priceAnnually: 150,
     },
 ];
