@@ -9,8 +9,8 @@ datasource db {
 }
 
 enum UserRole {
-    ADMIN
     MANAGER
+    ADMIN
     STAFF
     TRAINEE
     USER
