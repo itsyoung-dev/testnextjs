@@ -73,7 +73,7 @@ export const SignupForm = () => {
                                                     <Input
                                                         {...field}
                                                         disabled={isPending}
-                                                        type="email"
+                                                        type="text"
                                                         className="account-form_input focus-visible:ring-0 !w-[190px]"
                                                     />
                                                 </FormControl>
@@ -167,7 +167,7 @@ export const SignupForm = () => {
                                 disabled={isPending}
                                 type="submit"
                             >
-                                {showTwoFactor ? "Confirm" : "Sign in"}
+                                Continue
                             </button>
                         </form>
                         <>
