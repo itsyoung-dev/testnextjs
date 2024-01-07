@@ -32,10 +32,6 @@ html {
   @apply max-w-[1440px] px-4 sm:px-6 lg:px-8 mx-auto;
 }
 
-.account-form_input:focus{
-  @apply outline-none border-primary-blurple border-2;
-} 
-
 .account-form_label {
   @apply text-white text-[13px] font-medium leading-text-default tracking-text-default pb-2 focus:outline-none;
 }
@@ -138,15 +134,20 @@ html {
     }
 
     .account-form_input {
-      background-color: #0a0a0a;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      width: 405px;
-      height: 40px;
-      border-radius: 6px;
-      color: white;
-      font-size: 14px;
-      padding-left: 1rem;
+      background-color: #0a0a0a !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      width: 405px !important;
+      height: 40px !important;
+      border-radius: 6px !important; 
+      color: white !important;
+      font-size: 14px !important;
+      padding-left: 1rem !important;
     }
+
+    .account-form_input:focus{
+  outline: none !important;
+  border: 2px solid rgb(88 101 242) !important;
+} 
 
 }
 
