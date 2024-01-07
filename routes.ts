@@ -15,6 +15,7 @@ export const publicRoutes = [
     "/login",
     "/signup",
     "/reset-password",
+    "/new-password",
     "/new-verification",
     // api
 ];
