@@ -97,7 +97,7 @@ model TwoFactorConfirmation {
 
 model Membership {
     id              String   @id @unique
-    user            User     @relation(fields: [userId], references: [id])
+    user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId          String   @unique
     subscribedSince DateTime @default(now())
     amount          Int
@@ -106,7 +106,7 @@ model Membership {
 
 model HostingPlan {
     id              String    @id @unique
-    user            User      @relation(fields: [userId], references: [id])
+    user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId          String    @unique
     subscribedSince DateTime  @default(now())
     nextDueDate     DateTime?
@@ -117,7 +117,7 @@ model HostingPlan {
 
 model WebPlan {
     id              String    @id @unique
-    user            User      @relation(fields: [userId], references: [id])
+    user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId          String    @unique
     subscribedSince DateTime  @default(now())
     nextDueDate     DateTime?
@@ -128,7 +128,7 @@ model WebPlan {
 
 model Courses {
     id              String    @id @unique
-    user            User      @relation(fields: [userId], references: [id])
+    user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId          String    @unique
     subscribedSince DateTime  @default(now())
     nextDueDate     DateTime?
@@ -139,7 +139,7 @@ model Courses {
 
 model Affiliates {
     id           String @id @unique
-    user         User   @relation(fields: [userId], references: [id])
+    user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId       String @unique
     referralLink String @unique
 }
