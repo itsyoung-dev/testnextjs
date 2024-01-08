@@ -68,6 +68,7 @@ export const NewPasswordForm = () => {
                                                         {...field}
                                                         disabled={isPending}
                                                         className="account-form_input focus-visible:ring-0"
+                                                        type="password"
                                                     />
                                                 </FormControl>
                                                 <FormMessage />
