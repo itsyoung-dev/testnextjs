@@ -7,7 +7,7 @@ import { SignupValidation } from "@/lib/validations/signup";
 
 import { prisma } from "@/lib/utils";
 import { getUserByEmail } from "@/actions/user.actions";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { AuthError } from "next-auth";
 import {
@@ -354,4 +354,8 @@ export const getTwoFactorConfirmationByUserId = async (userId: string) => {
     } catch (error) {
         return null;
     }
+};
+
+export const logout = async () => {
+    await signOut();
 };
