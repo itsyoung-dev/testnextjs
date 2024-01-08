@@ -1,19 +1,24 @@
-import { ClerkProvider } from "@clerk/nextjs";
 import { inter } from "@/constants/font";
 import "@/public/styles/main.scss";
 import NavBar from "@/components/shared/NavBar";
-import { dark } from "@clerk/themes";
 import { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
     title: "The North Solution | Auth",
     description: "Bouw snel en simpel een professionele website.",
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const session = await auth();
     return (
-        <ClerkProvider appearance={{ baseTheme: dark }}>
+        <SessionProvider session={session}>
             <html lang="en">
                 <head>
                     <link
@@ -61,6 +66,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     </div>
                 </body>
             </html>
-        </ClerkProvider>
+        </SessionProvider>
     );
 }
