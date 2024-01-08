@@ -1,5 +1,5 @@
 "use client";
-import { prisma } from "@/utils/Utility";
+import { prisma } from "@/lib/utils";
 import { currentUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import React from "react";

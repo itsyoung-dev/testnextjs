@@ -1,10 +1,8 @@
 "use client";
 import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
-import Footer from "@/components/ui/Footer";
 import Link from "next/link";
-import { OAuthStrategy } from "@clerk/nextjs/server";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { z } from "zod";
 import { SignupValidation } from "@/lib/validations/signup";
 import {

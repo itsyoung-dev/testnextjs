@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import { LoginValidation } from "@/lib/validations/login";
 import { SignupValidation } from "@/lib/validations/signup";
 
-import { prisma } from "@/utils/Utility";
+import { prisma } from "@/lib/utils";
 import { getUserByEmail } from "@/actions/user.actions";
 import { signIn } from "@/auth";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
@@ -14,12 +14,12 @@ import {
     generatePasswordResetToken,
     generateTwoFactorToken,
     generateVerificationToken,
-} from "@/lib/tokens";
+} from "@/lib/helpers/tokens";
 import {
     sendPasswordResetEmail,
     sendTwoFactorTokenEmail,
     sendVerificationEmail,
-} from "@/lib/mail";
+} from "@/lib/helpers/mail";
 import { ResetValidation } from "@/lib/validations/reset";
 import { PasswordValidation } from "@/lib/validations/password";
 

@@ -1,7 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { inter } from "@/constants/font";
 import "@/public/styles/main.scss";
-import NavBar from "@/components/ui/NavBar";
+import NavBar from "@/components/shared/NavBar";
 import { dark } from "@clerk/themes";
 import { Metadata } from "next";
 import { Toaster } from "react-hot-toast";

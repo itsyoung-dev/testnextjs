@@ -1,6 +1,6 @@
 import ContactForm from "@/components/forms/ContactForm";
 import Blobs from "@/components/ui/blobs";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/components/shared/Footer";
 import React from "react";
 
 export default function ContactPage() {

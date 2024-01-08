@@ -1,6 +1,6 @@
-import { fetchUser } from "@/actions/user.actions";
+import { getUserById } from "@/actions/user.actions";
 import AccountProfile from "@/components/forms/AccountProfile";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/components/shared/Footer";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
@@ -8,7 +8,7 @@ const Page = async () => {
     const user = await currentUser();
     if (!user) return null;
 
-    const userInfo = await fetchUser(user.id);
+    const userInfo = await getUserById(user.id);
     if (userInfo?.onboarded) redirect("/");
 
     const userData = {

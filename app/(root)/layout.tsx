@@ -1,7 +1,7 @@
 import "@/public/styles/main.scss";
 import type { Metadata } from "next";
 import { inter } from "@/constants/font";
-import NavBar from "@/components/ui/NavBar";
+import NavBar from "@/components/shared/NavBar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 

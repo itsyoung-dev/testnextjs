@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/components/shared/Footer";
 import { useCallback, useEffect, useState } from "react";
 import { newVerification } from "@/actions/auth.actions";
 import toast from "react-hot-toast";

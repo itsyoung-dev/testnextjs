@@ -1,9 +1,7 @@
 "use client";
-import { useState, useTransition } from "react";
-import Link from "next/link";
+import { useTransition } from "react";
 import toast from "react-hot-toast";
 import { z } from "zod";
-import { LoginValidation } from "@/lib/validations/login";
 import {
     Form,
     FormControl,
@@ -19,7 +17,6 @@ import { Input } from "../ui/input";
 import { ResetValidation } from "@/lib/validations/reset";
 
 export const ResetForm = () => {
-    const [showTwoFactor, setShowTwoFactor] = useState(false);
     const [isPending, startTransition] = useTransition();
 
     const form = useForm<z.infer<typeof ResetValidation>>({

@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "@/utils/Utility";
+import { prisma } from "@/lib/utils";
 
 interface CreationParams {
     userId: string;

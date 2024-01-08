@@ -1,5 +1,5 @@
 import React from "react";
-import SecondaryLink from "../ui/SecondaryLink";
+import SecondaryLink from "@/components/shared/SecondaryLink";
 import Link from "next/link";
 
 const AffiliateBanner = () => {

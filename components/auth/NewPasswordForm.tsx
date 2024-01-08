@@ -1,9 +1,7 @@
 "use client";
-import { useState, useTransition } from "react";
-import Link from "next/link";
+import { useTransition } from "react";
 import toast from "react-hot-toast";
 import { z } from "zod";
-import { LoginValidation } from "@/lib/validations/login";
 import {
     Form,
     FormControl,
@@ -14,7 +12,7 @@ import {
 } from "../ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { newPassword, reset } from "@/actions/auth.actions";
+import { newPassword } from "@/actions/auth.actions";
 import { Input } from "../ui/input";
 import { PasswordValidation } from "@/lib/validations/password";
 import { useSearchParams } from "next/navigation";

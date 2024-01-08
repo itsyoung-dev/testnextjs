@@ -1,6 +1,5 @@
 "use client";
 import { useState, useTransition } from "react";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { z } from "zod";
@@ -15,9 +14,9 @@ import {
 } from "../ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Social } from "./Social";
+import { Social } from "@/components/auth/Social";
 import { login } from "@/actions/auth.actions";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 
 export const LoginForm = () => {
     const [showTwoFactor, setShowTwoFactor] = useState(false);

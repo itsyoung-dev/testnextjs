@@ -1,4 +1,4 @@
-import Footer from "@/components/ui/Footer";
+import Footer from "@/components/shared/Footer";
 import Careers from "@/components/homepage/Careers";
 import Collaboration from "@/components/homepage/Collaboration";
 import Header from "@/components/homepage/Header";
