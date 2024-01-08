@@ -12,9 +12,14 @@ import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { AuthError } from "next-auth";
 import {
     generatePasswordResetToken,
+    generateTwoFactorToken,
     generateVerificationToken,
 } from "@/lib/tokens";
-import { sendPasswordResetEmail, sendVerificationEmail } from "@/lib/mail";
+import {
+    sendPasswordResetEmail,
+    sendTwoFactorTokenEmail,
+    sendVerificationEmail,
+} from "@/lib/mail";
 import { ResetValidation } from "@/lib/validations/reset";
 import { PasswordValidation } from "@/lib/validations/password";
 
@@ -25,7 +30,7 @@ export const login = async (values: z.infer<typeof LoginValidation>) => {
         return { error: "Invalid fields" };
     }
 
-    const { email, password } = validatedFields.data;
+    const { email, password, code } = validatedFields.data;
 
     const existingUser = await getUserByEmail({ email });
 
@@ -44,6 +49,58 @@ export const login = async (values: z.infer<typeof LoginValidation>) => {
         );
 
         return { success: "Confirmation email sent" };
+    }
+
+    if (existingUser.isTwoFactorEnabled && existingUser.email) {
+        if (code) {
+            const twoFactorToken = await getTwoFactorTokenByEmail(
+                existingUser.email
+            );
+
+            if (!twoFactorToken) {
+                return { error: "Invalid code" };
+            }
+
+            if (twoFactorToken.token !== code) {
+                return { error: "Invalid code" };
+            }
+
+            const hasExpired = new Date(twoFactorToken.expires) < new Date();
+
+            if (hasExpired) {
+                return { error: "Code expired" };
+            }
+
+            await prisma.twoFactorToken.delete({
+                where: { id: twoFactorToken.id },
+            });
+
+            const existingConfirmation = await getTwoFactorConfirmationByUserId(
+                existingUser.id
+            );
+
+            if (existingConfirmation) {
+                await prisma.twoFactorConfirmation.delete({
+                    where: { id: existingConfirmation.id },
+                });
+            }
+
+            await prisma.twoFactorConfirmation.create({
+                data: {
+                    userId: existingUser.id,
+                },
+            });
+        } else {
+            const twoFactorToken = await generateTwoFactorToken(
+                existingUser.email
+            );
+            await sendTwoFactorTokenEmail(
+                twoFactorToken.email,
+                twoFactorToken.token
+            );
+
+            return { twoFactor: true };
+        }
     }
 
     try {
@@ -253,10 +310,47 @@ export const newPassword = async (
         });
 
         await prisma.passwordResetToken.delete({
-            where: { id: existingUser.id },
+            where: { id: existingToken.id },
         });
 
         return { success: "Password updated" };
+    } catch (error) {
+        return null;
+    }
+};
+
+export const getTwoFactorTokenByToken = async (token: string) => {
+    try {
+        const twoFactorToken = await prisma.twoFactorToken.findUnique({
+            where: { token },
+        });
+
+        return twoFactorToken;
+    } catch (error) {
+        return null;
+    }
+};
+
+export const getTwoFactorTokenByEmail = async (email: string) => {
+    try {
+        const twoFactorToken = await prisma.twoFactorToken.findFirst({
+            where: { email },
+        });
+
+        return twoFactorToken;
+    } catch (error) {
+        return null;
+    }
+};
+
+export const getTwoFactorConfirmationByUserId = async (userId: string) => {
+    try {
+        const twoFactorConfirmation =
+            await prisma.twoFactorConfirmation.findUnique({
+                where: { userId },
+            });
+
+        return twoFactorConfirmation;
     } catch (error) {
         return null;
     }
