@@ -33,10 +33,22 @@ export const LoginForm = () => {
 
     const onSubmit = (values: z.infer<typeof LoginValidation>) => {
         startTransition(() => {
-            login(values).then((data) => {
-                if (data?.error) toast.error(data.error);
-                if (data?.success) toast.success(data.success);
-            });
+            login(values)
+                .then((data) => {
+                    if (data?.error) {
+                        form.reset();
+                        toast.error(data.error);
+                    }
+                    if (data?.success) {
+                        form.reset();
+                        toast.success(data.success);
+                    }
+
+                    if (data?.twoFactor) {
+                        setShowTwoFactor(true);
+                    }
+                })
+                .catch(() => toast.error("Something went wrong"));
         });
     };
 
