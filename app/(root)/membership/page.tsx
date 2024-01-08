@@ -1,7 +1,7 @@
-import BannerNorth from "@/components/members/BannerNorth";
-import ButtonJoinMember from "@/components/members/ButtonJoinMember";
-import MembersTiers from "@/components/members/MembersTiers";
-import TabsTiersAbout from "@/components/members/TabsTiersAbout";
+import BannerNorth from "@/app/(root)/membership/_components/BannerNorth";
+import ButtonJoinMember from "@/app/(root)/membership/_components/ButtonJoinMember";
+import MembersTiers from "@/app/(root)/membership/_components/MembersTiers";
+import TabsTiersAbout from "@/app/(root)/membership/_components/TabsTiersAbout";
 import Footer from "@/components/shared/Footer";
 
 export const Member = ({ searchParams }: { searchParams: { tab: string } }) => {

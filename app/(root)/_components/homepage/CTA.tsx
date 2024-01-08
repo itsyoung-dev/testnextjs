@@ -1,5 +1,3 @@
-import PrimaryLink from "../ui/PrimaryLink";
-
 export default function CTA() {
     //
 

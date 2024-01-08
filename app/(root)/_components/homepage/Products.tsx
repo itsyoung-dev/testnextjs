@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import reciple from "../../public/assets/reciplejs.png";
 
 const Products = () => {
     return (
@@ -42,7 +41,7 @@ const Products = () => {
                 <Image
                     alt="reciplejs"
                     className="w-auto lg:w-[988px] h-auto lg:h-[200px] mx-auto pt-8 px-12 object-fill"
-                    src={reciple}
+                    src={"/assets/reciplejs.png"}
                 />
 
                 <div className="mt-6 relative max-w-[1054px] mx-auto">

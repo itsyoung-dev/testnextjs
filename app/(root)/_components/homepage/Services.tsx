@@ -1,13 +1,9 @@
 import React from "react";
-import software from "../../public/assets/software-services.png";
-import host from "../../public/assets/host-services.png";
-import web from "../../public/assets/web-services.png";
-import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 interface ServiceCardProps {
-    image: StaticImageData;
+    image?: string;
     text: string;
     heading: string;
     href: string;
@@ -35,19 +31,16 @@ function Services() {
                         href="/"
                         heading="Software services"
                         text="From simple automations to sophisticated algorithms."
-                        image={software}
                     />
                     <ServicesCard
                         href="/"
                         heading="Web services"
                         text="Boost your online presence with a professional website."
-                        image={web}
                     />
                     <ServicesCard
                         href="/"
                         heading="Host services"
                         text="Keep your website or software online and protected."
-                        image={host}
                     />
                 </div>
             </div>
@@ -55,7 +48,7 @@ function Services() {
     );
 }
 
-function ServicesCard({ image, text, heading, href }: ServiceCardProps) {
+function ServicesCard({ text, heading, href }: ServiceCardProps) {
     return (
         <Link href={"/"}>
             <div className="group h-auto rounded-[15px] border border-primary-white/10 flex flex-col duration-200 service-card hover:scale-105">
