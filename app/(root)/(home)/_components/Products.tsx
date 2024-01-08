@@ -38,7 +38,7 @@ const Products = () => {
                         open-sourced
                     </span>
                 </div>
-                <Image
+                <img
                     alt="reciplejs"
                     className="w-auto lg:w-[988px] h-auto lg:h-[200px] mx-auto pt-8 px-12 object-fill"
                     src={"/assets/reciplejs.png"}
