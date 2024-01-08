@@ -3,7 +3,7 @@ import {
     getTwoFactorTokenByEmail,
     getVerificationTokenByEmail,
 } from "@/actions/auth.actions";
-import { prisma } from "@/utils/Utility";
+import { prisma } from "@/lib/utils";
 
 import { v4 as uuidv4 } from "uuid";
 import crypto from "crypto";
