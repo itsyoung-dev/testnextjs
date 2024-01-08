@@ -2,17 +2,22 @@ import "@/public/styles/main.scss";
 import type { Metadata } from "next";
 import { inter } from "@/constants/font";
 import NavBar from "@/components/shared/NavBar";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
     title: "The North Solution | Home",
     description: "Bouw snel en simpel een professionele website.",
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const session = await auth();
     return (
-        <ClerkProvider appearance={{ baseTheme: dark }}>
+        <SessionProvider session={session}>
             <html lang="en">
                 <head>
                     <link
@@ -46,6 +51,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <main className="isolate">{children}</main>
                 </body>
             </html>
-        </ClerkProvider>
+        </SessionProvider>
     );
 }
