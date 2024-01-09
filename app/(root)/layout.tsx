@@ -1,18 +1,24 @@
-import "@/public/styles/main.scss";
-import type { Metadata } from "next";
 import { inter } from "@/constants/font";
-import NavBar from "@/components/ui/NavBar";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import "@/public/styles/main.scss";
+import NavBar from "@/components/shared/NavBar";
+import { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
-    title: "The North Solution | Home",
+    title: "The North Solution | Auth",
     description: "Bouw snel en simpel een professionele website.",
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const session = await auth();
     return (
-        <ClerkProvider appearance={{ baseTheme: dark }}>
+        <SessionProvider session={session}>
             <html lang="en">
                 <head>
                     <link
@@ -42,10 +48,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <meta name="theme-color" content="#ffffff" />
                 </head>
                 <body className={inter.className}>
-                    <NavBar />
-                    <main className="isolate">{children}</main>
+                    <div className="">
+                        <NavBar />
+                        <Toaster
+                            position="top-center"
+                            toastOptions={{
+                                style: { background: "#0f0f0f", color: "#fff" },
+                                success: {
+                                    duration: 3000,
+                                },
+                                error: {
+                                    duration: 5000,
+                                },
+                            }}
+                        />
+                        {children}
+                    </div>
                 </body>
             </html>
-        </ClerkProvider>
+        </SessionProvider>
     );
 }

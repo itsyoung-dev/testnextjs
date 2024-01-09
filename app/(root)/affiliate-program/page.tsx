@@ -1,8 +1,8 @@
-import AffiliateBanner from "@/components/homepage/AffiliateBanner";
-import CTA from "@/components/homepage/CTA";
-import CenteredFeatures from "@/components/homepage/CenteredFeatures";
-import FrequentlyAskedQuestions from "@/components/homepage/FrequentlyAskedQuestions";
-import Footer from "@/components/ui/Footer";
+import AffiliateBanner from "@/app/(root)/_components/homepage/AffiliateBanner";
+import CTA from "@/app/(root)/_components/homepage/CTA";
+import CenteredFeatures from "@/app/(root)/_components/homepage/CenteredFeatures";
+import FrequentlyAskedQuestions from "@/app/(root)/_components/homepage/FrequentlyAskedQuestions";
+import Footer from "@/components/shared/Footer";
 import React from "react";
 
 const AffiliatePage = () => {

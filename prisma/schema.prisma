@@ -9,31 +9,95 @@ datasource db {
 }
 
 enum UserRole {
-    ADMIN
     MANAGER
+    ADMIN
     STAFF
+    TRAINEE
     USER
 }
 
 model User {
-    id               String       @id @unique
-    role             UserRole     @default(USER)
-    explorer         Boolean      @default(true)
-    member           Boolean      @default(false)
-    membership       Membership?
-    hostingClient    Boolean      @default(false)
-    hostingPlan      HostingPlan?
-    webClient        Boolean      @default(false)
-    webPlan          WebPlan?
-    courseClient     Boolean      @default(false)
-    courses          Courses[]
-    affiliate        Boolean      @default(false)
-    affiliateDetails Affiliates?
+    id                    String                 @id @default(cuid())
+    name                  String?
+    email                 String?                @unique
+    emailVerified         DateTime?
+    image                 String?
+    password              String?
+    role                  UserRole               @default(USER)
+    accounts              Account[]
+    isTwoFactorEnabled    Boolean                @default(false)
+    twoFactorConfirmation TwoFactorConfirmation?
+    explorer              Boolean                @default(true)
+    member                Boolean                @default(false)
+    membership            Membership?
+    hostingClient         Boolean                @default(false)
+    hostingPlan           HostingPlan?
+    webClient             Boolean                @default(false)
+    webPlan               WebPlan?
+    courseClient          Boolean                @default(false)
+    courses               Courses[]
+    affiliate             Boolean                @default(false)
+    affiliateDetails      Affiliates?
+}
+
+model Account {
+    id                String  @id @default(cuid())
+    userId            String
+    type              String
+    provider          String
+    providerAccountId String
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
+    expires_at        Int?
+    token_type        String?
+    scope             String?
+    id_token          String? @db.Text
+    session_state     String?
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([provider, providerAccountId])
+}
+
+model VerificationToken {
+    id      String   @id @default(cuid())
+    email   String
+    token   String   @unique
+    expires DateTime
+
+    @@unique([email, token])
+}
+
+model PasswordResetToken {
+    id      String   @id @default(cuid())
+    email   String
+    token   String   @unique
+    expires DateTime
+
+    @@unique([email, token])
+}
+
+model TwoFactorToken {
+    id      String   @id @default(cuid())
+    email   String
+    token   String   @unique
+    expires DateTime
+
+    @@unique([email, token])
+}
+
+model TwoFactorConfirmation {
+    id String @id @default(cuid())
+
+    userId String
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([userId])
 }
 
 model Membership {
     id              String   @id @unique
-    user            User     @relation(fields: [userId], references: [id])
+    user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId          String   @unique
     subscribedSince DateTime @default(now())
     amount          Int
@@ -42,7 +106,7 @@ model Membership {
 
 model HostingPlan {
     id              String    @id @unique
-    user            User      @relation(fields: [userId], references: [id])
+    user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId          String    @unique
     subscribedSince DateTime  @default(now())
     nextDueDate     DateTime?
@@ -53,7 +117,7 @@ model HostingPlan {
 
 model WebPlan {
     id              String    @id @unique
-    user            User      @relation(fields: [userId], references: [id])
+    user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId          String    @unique
     subscribedSince DateTime  @default(now())
     nextDueDate     DateTime?
@@ -64,7 +128,7 @@ model WebPlan {
 
 model Courses {
     id              String    @id @unique
-    user            User      @relation(fields: [userId], references: [id])
+    user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId          String    @unique
     subscribedSince DateTime  @default(now())
     nextDueDate     DateTime?
@@ -75,7 +139,7 @@ model Courses {
 
 model Affiliates {
     id           String @id @unique
-    user         User   @relation(fields: [userId], references: [id])
+    user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId       String @unique
     referralLink String @unique
 }
