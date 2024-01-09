@@ -60,10 +60,14 @@ export async function deleteUser({ userId }: { userId: string }) {
     }
 }
 
-// export async function fetchUser(userId: string) {
-//     try {
-//         return await prisma.user.findFirst({ where: { id: userId } });
-//     } catch (error: any) {
-//         throw new Error(`Failed to fetch user: ${error.message}`);
-//     }
-// }
+export const getAccountByUserId = async (userId: string) => {
+    try {
+        const account = await prisma.account.findFirst({
+            where: { userId },
+        });
+
+        return account;
+    } catch (error) {
+        return null;
+    }
+};
