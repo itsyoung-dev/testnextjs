@@ -70,19 +70,17 @@ const NavBar = () => {
                                     </a>
                                 </React.Fragment>
                             ))}
-                            {user && (
-                                <div className="hidden md:block">
-                                    <a
-                                        href="/login"
-                                        className="inline-block rounded-lg px-2 py-1 text-sm text-secondary-gray hover:text-primary-white/[88%] duration-200"
-                                    >
-                                        Contact
-                                    </a>
-                                </div>
-                            )}
                         </div>
                     </div>
                     <div className="flex items-center gap-x-5">
+                        <div className="hidden md:block">
+                            <a
+                                href="/login"
+                                className="inline-block rounded-lg px-2 py-1 text-sm text-secondary-gray hover:text-primary-white/[88%] duration-200"
+                            >
+                                Contact
+                            </a>
+                        </div>
                         {!user && (
                             <>
                                 <div className="hidden md:block">
@@ -109,21 +107,7 @@ const NavBar = () => {
                                 </a>
                             </>
                         )}
-                        {user && (
-                            <>
-                                <div className="mr-1">
-                                    <a
-                                        href="/dashboard"
-                                        className="flex items-end text-center bg-white/10 border border-white/10 rounded-md px-3 py-[4px] text-sm text-primary-white hover:text-primary-white/[88%] hover:border-white/20 duration-200"
-                                    >
-                                        <span className="pt-[2px]">
-                                            Dashboard
-                                        </span>
-                                    </a>
-                                </div>
-                                <UserButton />
-                            </>
-                        )}
+                        {user && <UserButton />}
                         <div className="-mr-1 md:hidden"></div>
                     </div>
                 </nav>
