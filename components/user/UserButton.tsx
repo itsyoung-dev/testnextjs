@@ -18,9 +18,7 @@ const UserButton = () => {
             <DropdownMenuTrigger className="focus:outline-none !overflow-auto">
                 <Avatar className="rounded-full">
                     <AvatarImage src={user?.image || ""} />
-                    <AvatarFallback className="bg-[url('https://img.clerk.com/preview.png?size=144&seed=1705274105765&initials=AD&isSquare=true&bgType=marble&bgColor=5865F2&fgType=silhouette&fgColor=FFFFFF&type=user')] bg-contain">
-                        {/* <FaUser size={27} className="text-[#E1E2E4] mt-3" /> */}
-                    </AvatarFallback>
+                    <AvatarFallback className="bg-[url('https://img.clerk.com/preview.png?size=144&seed=1705274105765&initials=AD&isSquare=true&bgType=marble&bgColor=5865F2&fgType=silhouette&fgColor=FFFFFF&type=user')] bg-contain"></AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent
