@@ -1,9 +1,10 @@
 import { auth } from "@/auth";
-import NavBar from "@/components/shared/NavBar";
 import { inter } from "@/constants/font";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "react-hot-toast";
 import "@/public/styles/main.scss";
+import Sidebar from "@/components/shared/dashboard/Sidebar";
+import Topbar from "@/components/shared/dashboard/Topbar";
 
 export const metadata = {
     title: "Next.js",
@@ -46,26 +47,29 @@ export default async function RootLayout({
                     <meta name="msapplication-TileColor" content="#da532c" />
                     <meta name="theme-color" content="#ffffff" />
                 </head>
-                <body className={inter.className}>
-                    <div className="">
-                        <NavBar />
-                        <Toaster
-                            position="top-center"
-                            toastOptions={{
-                                style: { background: "#0f0f0f", color: "#fff" },
-                                success: {
-                                    duration: 3000,
-                                },
-                                error: {
-                                    duration: 5000,
-                                },
-                            }}
-                        />
-                        {children}
-                    </div>
+                <body className={`${inter.className}`}>
+                    <Topbar />
+
+                    <main className="flex flex-row">
+                        <Sidebar />
+                        <section className="flex min-h-screen flex-1 flex-col items-center bg-dark-1 px-6 pb-10 pt-28 max-md:pb-32 sm:px-10">
+                            <div className="w-full">{children}</div>
+                        </section>
+                    </main>
+                    <Toaster
+                        position="top-center"
+                        toastOptions={{
+                            style: { background: "#0f0f0f", color: "#fff" },
+                            success: {
+                                duration: 3000,
+                            },
+                            error: {
+                                duration: 5000,
+                            },
+                        }}
+                    />
                 </body>
             </html>
         </SessionProvider>
     );
 }
-
