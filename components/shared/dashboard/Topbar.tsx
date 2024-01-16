@@ -43,17 +43,20 @@ const Topbar = () => {
                 <div className="flex items-center">
                     <Dialog>
                         <DialogTrigger>
-                            <button className="w-64 bg-black border rounded-md border-white/10 hover:bg-white/5 h-9 flex justify-start flex-row items-center">
+                            <div className="w-64 bg-black border rounded-md border-white/10 hover:bg-white/5 h-9 flex justify-start flex-row items-center">
                                 <span className="text-secondary-gray flex pl-3 text-sm">
                                     <MagnifyingGlassIcon className="w-4 font-bold mr-3" />
                                     Search...
                                 </span>
-                            </button>
+                            </div>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[500px] h-1/4 p-0 !bg-[#0a0a0a] rounded-md text-primary-white border-white/10">
-                            <div className="border rounded-t-md bg-[#0a0a0a]">
-                                <input id="name" className="w-full" />
-                            </div>
+                            <MagnifyingGlassIcon className="w-4 font-bold mr-3 absolute left-4 top-4 text-secondary-gray" />
+                            <input
+                                id="name"
+                                className="w-full bg-[#0a0a0a] h-12 pl-11 text-sm focus:outline-none border-b rounded-t-[8px] border-white/10"
+                                placeholder="Search a page or section..."
+                            />
                         </DialogContent>
                     </Dialog>
                     <Link href={"/notifications"}>
@@ -69,3 +72,4 @@ const Topbar = () => {
 };
 
 export default Topbar;
+
