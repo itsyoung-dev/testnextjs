@@ -13,11 +13,12 @@ import Link from "next/link";
 
 const UserButton = () => {
     const user = useCurrentUser();
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none !overflow-auto">
                 <Avatar className="rounded-full">
-                    <AvatarImage src={user?.image || ""} />
+                    <AvatarImage src={user?.image || ""} alt="Profile Picture"/>
                     <AvatarFallback className="bg-[url('https://img.clerk.com/preview.png?size=144&seed=1705274105765&initials=AD&isSquare=true&bgType=marble&bgColor=5865F2&fgType=silhouette&fgColor=FFFFFF&type=user')] bg-contain"></AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
