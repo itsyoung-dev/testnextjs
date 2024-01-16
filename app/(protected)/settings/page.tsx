@@ -66,51 +66,127 @@ const SettingsPage = () => {
     };
 
     return (
-        <div className="pt-32">
-            <button disabled={isPending}>Update name</button>
+        <div className="px-52">
+            <div className="border-b border-white/10 pb-4">
+                <h1 className="text-[#ededed] font-medium text-2xl">
+                    Account Settings
+                </h1>
+                <p className="text-base my-2 text-secondary-gray">
+                    Change your personal details and settings
+                </p>
+            </div>
             <Form {...form}>
                 <form
-                    className="space-y-6"
+                    className="space-y-6 pt-8"
                     onSubmit={form.handleSubmit(onSubmit)}
                 >
-                    <div className="space-y-4">
-                        <FormField
-                            control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Name</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            {...field}
-                                            placeholder="Your name"
-                                            disabled={isPending}
-                                        ></Input>
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {user?.isOAuth === false && (
-                            <>
+                    <div className="space-y-6">
+                        <div className="bg-[#0a0a0a] border border-white/10 rounded-md relative overflow-hidden flex-1">
+                            <div className="p-6">
+                                <h4 className="text-lg font-semibold text-[#ededed] tracking-normal leading-6">
+                                    Display Name
+                                </h4>
+                                <p className="text-sm my-3 text-[#ededed]">
+                                    Please enter your full name, or a display
+                                    name you are comfortable with.
+                                </p>
                                 <FormField
                                     control={form.control}
-                                    name="email"
+                                    name="name"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Email</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     {...field}
-                                                    placeholder="example@email.com"
-                                                    type="email"
+                                                    placeholder="Your name"
                                                     disabled={isPending}
+                                                    className="account-form_input focus-visible:ring-0 !bg-primary-black"
                                                 ></Input>
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
                                     )}
                                 />
+                            </div>
+                            <div className="bg-[#0a0a0a] border-t border-white/10 overflow-hidden flex items-center justify-between px-6">
+                                <div className="py-2">
+                                    <p className="text-sm my-3 text-secondary-gray">
+                                        Please use 32 characters at maximum.
+                                    </p>
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="bg-white px-3.5 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-normal float-right"
+                                >
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                        {user?.isOAuth === false && (
+                            <>
+                                <div className="bg-[#0a0a0a] border border-white/10 rounded-md relative overflow-hidden flex-1">
+                                    <div className="p-6">
+                                        <h4 className="text-lg font-semibold text-[#ededed] tracking-normal leading-6">
+                                            Email
+                                        </h4>
+                                        <p className="text-sm my-3 text-[#ededed]">
+                                            Please enter the email address you
+                                            want to use to log in with Vercel.
+                                        </p>
+                                        <FormField
+                                            control={form.control}
+                                            name="email"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormControl>
+                                                        <Input
+                                                            {...field}
+                                                            placeholder="example@email.com"
+                                                            disabled={isPending}
+                                                            className="account-form_input focus-visible:ring-0 !bg-primary-black"
+                                                        ></Input>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </div>
+                                    <div className="bg-[#0a0a0a] border-t border-white/10 overflow-hidden flex items-center justify-between px-6">
+                                        <div className="py-2">
+                                            <p className="text-sm my-3 text-secondary-gray">
+                                                We will email you to verify the
+                                                change.
+                                            </p>
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            className="bg-white px-3.5 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-normal float-right"
+                                        >
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+                                {/* <FormField
+                                    control={form.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel className="account-form_label">
+                                                Email
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    {...field}
+                                                    placeholder="example@email.com"
+                                                    type="email"
+                                                    disabled={isPending}
+                                                    className="account-form_input focus-visible:ring-0"
+                                                ></Input>
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                /> */}
                                 <FormField
                                     control={form.control}
                                     name="password"
@@ -206,8 +282,11 @@ const SettingsPage = () => {
                             />
                         )}
                     </div>
-                    <button type="submit" className="bg-white">
-                        Save
+                    <button
+                        type="submit"
+                        className="bg-white px-3.5 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-medium float-right"
+                    >
+                        Save changes
                     </button>
                 </form>
             </Form>
