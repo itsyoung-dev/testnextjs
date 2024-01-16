@@ -50,9 +50,9 @@ export default async function RootLayout({
                 <body className={`${inter.className}`}>
                     <Topbar />
 
-                        <Sidebar />
+                    <Sidebar />
                     <main className="ml-72">
-                        <section className="flex min-h-screen flex-1 flex-col items-center bg-dark-1 px-6 pb-10 pt-28 max-md:pb-32 sm:px-10">
+                        <section className="flex min-h-screen flex-1 flex-col items-center w-full bg-dark-1 pt-12 px-20">
                             <div className="w-full">{children}</div>
                         </section>
                     </main>
