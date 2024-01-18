@@ -1,6 +1,7 @@
 import SidebarSection from "@/components/shared/dashboard/SidebarSection";
 import {
     ArrowLeftEndOnRectangleIcon,
+    BanknotesIcon,
     ChartPieIcon,
     Cog6ToothIcon,
     CreditCardIcon,
@@ -8,52 +9,58 @@ import {
     HomeIcon,
     PhoneArrowDownLeftIcon,
     ServerStackIcon,
+    SwatchIcon,
+    UserIcon,
 } from "@heroicons/react/24/outline";
 import SidebarLink from "@/components/shared/dashboard/SidebarLink";
 import { TemplateOutline } from "heroicons-react";
 import { LogoutButton } from "@/components/auth/LogoutButton";
+import { RoleGate } from "@/components/auth/RoleGate";
+import { TypeGate } from "@/components/auth/TypeGate";
+import { currentUser } from "@/lib/helpers/auth";
 
-const Sidebar = () => {
+const Sidebar = async () => {
+    const user = await currentUser();
     return (
-        <div className="bg-[#0c0c0c] w-72 border-r border-white/10 pt-8 self-start fixed bottom-0 left-0 h-[calc(100vh-75px)]  max-md:hidden z-20">
+        <div className="bg-[#0c0c0c] w-72 border-r border-white/10 pt-8 self-start fixed bottom-0 left-0 h-[calc(100vh-75px)]  max-md:hidden z-20 overflow-auto">
             <div className="flex flex-col justify-between h-full">
                 <div>
-                    <SidebarSection header="MAIN MENU" divider={true}>
+                    <SidebarSection header="MAIN MENU" bottomDivider={true}>
                         <SidebarLink
                             icon={<HomeIcon className="w-5 text-[#ffffffdb]" />}
-                            href="/"
+                            href="/dashboard"
                             label="Home"
                         />
                         <SidebarLink
                             icon={
                                 <CursorArrowRaysIcon className="w-5 text-[#ffffffdb]" />
                             }
-                            href="/"
+                            href="/dashboard/affiliates"
                             label="Affiliate Program"
                         />
                         <SidebarLink
                             icon={
                                 <ChartPieIcon className="w-5 text-[#ffffffdb]" />
                             }
-                            href="/"
+                            href="/dashboard/statistics"
                             label="Statistics"
                         />
                         <SidebarLink
                             icon={
                                 <CreditCardIcon className="w-5 text-[#ffffffdb]" />
                             }
-                            href="/"
+                            href="/dashboard/invoices"
                             label="Invoices"
                         />
                         <SidebarLink
                             icon={
                                 <Cog6ToothIcon className="w-5 text-[#ffffffdb]" />
                             }
-                            href="/"
+                            href="/settings"
                             label="Settings"
                         />
                     </SidebarSection>
-                    <SidebarSection header="SERVICES" divider={true}>
+                    <SidebarSection header="SERVICES" bottomDivider={true}>
                         <SidebarLink
                             icon={
                                 <TemplateOutline className="w-5 text-[#ffffffdb]" />
@@ -69,7 +76,7 @@ const Sidebar = () => {
                             label="Hosting"
                         />
                     </SidebarSection>
-                    <SidebarSection header="MORE" divider={false}>
+                    <SidebarSection header="MORE">
                         <SidebarLink
                             icon={
                                 <PhoneArrowDownLeftIcon className="w-5 text-[#ffffffdb]" />
@@ -87,8 +94,31 @@ const Sidebar = () => {
                             />
                         </LogoutButton>
                     </SidebarSection>
+                    <RoleGate allowedRole="ADMIN" >
+                    <SidebarSection header="ADMINISTRATOR TOOLS" topDivider={true}>
+                        <SidebarLink
+                            icon={<UserIcon className="w-5 text-[#ffffffdb]" />}
+                            href="/"
+                            label="Manage users"
+                        />
+                        <SidebarLink
+                            icon={
+                                <SwatchIcon className="w-5 text-[#ffffffdb]" />
+                            }
+                            href="/"
+                            label="Manage services"
+                        />
+                        <SidebarLink
+                            icon={
+                                <BanknotesIcon className="w-5 text-[#ffffffdb]" />
+                            }
+                            href="/"
+                            label="Manage payments"
+                        />
+                    </SidebarSection>
+                    </RoleGate>
                 </div>
-                <div className="pl-5 pb-5 h-full flex justify-end flex-col font-medium">
+                <div className="pl-5 py-5 h-full flex justify-end flex-col font-medium">
                     <p className="text-secondary-gray text-[12px]">
                         ©2024 The North Solution
                     </p>
