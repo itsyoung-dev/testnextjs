@@ -1,7 +1,7 @@
-import AffiliateBanner from "@/app/(root)/_components/homepage/AffiliateBanner";
-import CTA from "@/app/(root)/_components/homepage/CTA";
-import CenteredFeatures from "@/app/(root)/_components/homepage/CenteredFeatures";
-import FrequentlyAskedQuestions from "@/app/(root)/_components/homepage/FrequentlyAskedQuestions";
+import AffiliateBanner from "@/app/(root)/affiliate-program/_components/AffiliateBanner";
+import CTA from "@/app/(root)/affiliate-program/_components/CTA";
+import CenteredFeatures from "@/app/(root)/affiliate-program/_components/CenteredFeatures";
+import FrequentlyAskedQuestions from "@/app/(root)/affiliate-program/_components/FrequentlyAskedQuestions";
 import Footer from "@/components/shared/Footer";
 import React from "react";
 
@@ -12,7 +12,7 @@ const AffiliatePage = () => {
             <CenteredFeatures />
             <FrequentlyAskedQuestions />
             <CTA />
-            <Footer tBorder />
+            <Footer tBorder={false} />
         </>
     );
 };

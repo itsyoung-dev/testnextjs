@@ -11,7 +11,7 @@ export const RoleGate = ({ children, allowedRole }: RoleGateProps) => {
     const role = useCurrentRole();
 
     if (role !== allowedRole) {
-        return <div>You do not have permission to view this content!</div>;
+        return <div></div>;
     }
 
     return <>{children}</>;
