@@ -4,7 +4,7 @@ import MembersTiers from "@/app/(root)/membership/_components/MembersTiers";
 import TabsTiersAbout from "@/app/(root)/membership/_components/TabsTiersAbout";
 import Footer from "@/components/shared/Footer";
 
-export const Member = ({ searchParams }: { searchParams: { tab: string } }) => {
+ const Member = ({ searchParams }: { searchParams: { tab: string } }) => {
     return (
         <div>
             <BannerNorth />
@@ -41,3 +41,5 @@ export const Member = ({ searchParams }: { searchParams: { tab: string } }) => {
         </div>
     );
 };
+
+export default Member;
