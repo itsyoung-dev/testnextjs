@@ -26,8 +26,6 @@ export const SignupForm = () => {
         searchParams.get("error") === "OAuthAccountNotLinked"
             ? "Email already in use with different provider!"
             : "";
-
-    const [showTwoFactor, setShowTwoFactor] = useState(false);
     const [isPending, startTransition] = useTransition();
 
     const form = useForm<z.infer<typeof SignupValidation>>({
@@ -195,3 +193,4 @@ export const SignupForm = () => {
         </main>
     );
 };
+
