@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/select";
 import { UserRole } from "@prisma/client";
 import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const SettingsPage = () => {
     const user = useCurrentUser();
@@ -75,7 +76,23 @@ const SettingsPage = () => {
                     Change your personal details and settings
                 </p>
             </div>
-            <Form {...form}>
+            <div className="flex">
+                <Tabs defaultValue="account">
+                    <TabsList>
+                        <TabsTrigger value="account">Profile</TabsTrigger>
+                        <TabsTrigger value="password">
+                            Authentication
+                        </TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="account">
+                        Make changes to your account here.
+                    </TabsContent>
+                    <TabsContent value="password">
+                        Change your password here.
+                    </TabsContent>
+                </Tabs>
+            </div>
+            {/* <Form {...form}>
                 <form
                     className="space-y-6 pt-8"
                     onSubmit={form.handleSubmit(onSubmit)}
@@ -165,8 +182,8 @@ const SettingsPage = () => {
                                             Save
                                         </button>
                                     </div>
-                                </div>
-                                {/* <FormField
+                                </div> */}
+            {/* <FormField
                                     control={form.control}
                                     name="email"
                                     render={({ field }) => (
@@ -187,42 +204,72 @@ const SettingsPage = () => {
                                         </FormItem>
                                     )}
                                 /> */}
-                                <FormField
-                                    control={form.control}
-                                    name="password"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Password</FormLabel>
-                                            <FormControl>
-                                                <Input
-                                                    {...field}
-                                                    placeholder="******"
-                                                    type="password"
-                                                    disabled={isPending}
-                                                ></Input>
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="newPassword"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>New Password</FormLabel>
-                                            <FormControl>
-                                                <Input
-                                                    {...field}
-                                                    placeholder="******"
-                                                    type="password"
-                                                    disabled={isPending}
-                                                ></Input>
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
+            {/* <div className="bg-[#0a0a0a] border border-white/10 rounded-md relative overflow-hidden flex-1">
+                                    <div className="p-6">
+                                        <h4 className="text-lg font-semibold text-[#ededed] tracking-normal leading-6">
+                                            Password
+                                        </h4>
+                                        <p className="text-sm my-3 text-[#ededed]">
+                                            Please enter your full name, or a
+                                            display name you are comfortable
+                                            with.
+                                        </p>
+                                        <FormField
+                                            control={form.control}
+                                            name="password"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel className="account-form_label">
+                                                        Current password
+                                                    </FormLabel>
+                                                    <FormControl>
+                                                        <Input
+                                                            {...field}
+                                                            placeholder="******"
+                                                            disabled={isPending}
+                                                            className="account-form_input focus-visible:ring-0 !bg-primary-black"
+                                                        ></Input>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <FormField
+                                            control={form.control}
+                                            name="newPassword"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel className="account-form_label">
+                                                        New password
+                                                    </FormLabel>
+                                                    <FormControl>
+                                                        <Input
+                                                            {...field}
+                                                            placeholder="******"
+                                                            disabled={isPending}
+                                                            className="account-form_input focus-visible:ring-0 !bg-primary-black"
+                                                        ></Input>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </div>
+                                    <div className="bg-[#0a0a0a] border-t border-white/10 overflow-hidden flex items-center justify-between px-6">
+                                        <div className="py-2">
+                                            <p className="text-sm my-3 text-secondary-gray">
+                                                We will email you to verify the
+                                                change.
+                                            </p>
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            className="bg-white px-3.5 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-normal float-right"
+                                        >
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
                             </>
                         )}
                         <FormField
@@ -289,7 +336,7 @@ const SettingsPage = () => {
                         Save changes
                     </button>
                 </form>
-            </Form>
+            </Form> */}
         </div>
     );
 };
