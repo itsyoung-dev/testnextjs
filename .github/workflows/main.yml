@@ -38,6 +38,8 @@ jobs:
           script: |
             pm2 stop 0
             cd /home/${{ secrets.HOST_USERNAME }}/tnssite
+            git stash
             git pull
+            npm install
             yarn install
             pm2 start 0
