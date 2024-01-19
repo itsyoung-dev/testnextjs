@@ -2,41 +2,16 @@
 
 import * as z from "zod";
 
-import { settings } from "@/actions/dashboard.actions";
-import { useSession } from "next-auth/react";
-import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { SettingsValidation } from "@/lib/validations/settings";
 import { zodResolver } from "@hookform/resolvers/zod";
-import toast from "react-hot-toast";
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { useCurrentUser } from "@/lib/hooks/useCurrentUser";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import { UserRole } from "@prisma/client";
-import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ProfileSettings from "@/app/(protected)/settings/_components/ProfileSettings";
+import AuthSettings from "@/app/(protected)/settings/_components/AuthSettings";
 
 const SettingsPage = () => {
     const user = useCurrentUser();
-
-    const { update } = useSession();
-    const [isPending, startTransition] = useTransition();
-
     const form = useForm<z.infer<typeof SettingsValidation>>({
         resolver: zodResolver(SettingsValidation),
         defaultValues: {
@@ -49,25 +24,8 @@ const SettingsPage = () => {
         },
     });
 
-    const onSubmit = (values: z.infer<typeof SettingsValidation>) => {
-        startTransition(() => {
-            settings(values)
-                .then((data) => {
-                    if (data.error) {
-                        toast.error(data?.error);
-                    }
-
-                    if (data.success) {
-                        update();
-                        toast.success(data?.success);
-                    }
-                })
-                .catch((err) => toast.error("Something went wrong"));
-        });
-    };
-
     return (
-        <div className="px-52">
+        <main>
             <div className="border-b border-white/10 pb-4">
                 <h1 className="text-[#ededed] font-medium text-2xl">
                     Account Settings
@@ -76,19 +34,23 @@ const SettingsPage = () => {
                     Change your personal details and settings
                 </p>
             </div>
-            <div className="flex">
-                <Tabs defaultValue="account">
-                    <TabsList>
-                        <TabsTrigger value="account">Profile</TabsTrigger>
-                        <TabsTrigger value="password">
-                            Authentication
-                        </TabsTrigger>
+            <div className="mt-8">
+                <Tabs defaultValue="profile" className="flex gap-x-8">
+                    <TabsList className="gap-y-0.5">
+                        <TabsTrigger value="profile">Profile</TabsTrigger>
+                        {/* <TypeGate allowedType={user?.isOAuth}> */}
+                        <TabsTrigger value="account">Account</TabsTrigger>
+                        {/* </TypeGate> */}
+                        <TabsTrigger value="notifs">Notifications</TabsTrigger>
                     </TabsList>
-                    <TabsContent value="account">
-                        Make changes to your account here.
+                    <TabsContent value="profile" className="w-full mt-0 px-5">
+                        <ProfileSettings form={form} />
                     </TabsContent>
-                    <TabsContent value="password">
-                        Change your password here.
+                    <TabsContent value="account" className="w-full mt-0 px-5">
+                        <AuthSettings form={form} />
+                    </TabsContent>
+                    <TabsContent value="notifs" className="w-full mt-0 px-5">
+                        <AuthSettings form={form} />
                     </TabsContent>
                 </Tabs>
             </div>
@@ -337,8 +299,9 @@ const SettingsPage = () => {
                     </button>
                 </form>
             </Form> */}
-        </div>
+        </main>
     );
 };
 
 export default SettingsPage;
+
