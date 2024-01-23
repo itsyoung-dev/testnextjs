@@ -165,9 +165,11 @@ html {
     }
 
     .account-form_input:focus{
-  outline: none !important;
-  border: 1px solid rgb(88 101 242) !important;
-} 
+      outline: none !important;
+      offset: none !important;
+      border: 2px solid rgb(88 101 242) !important;
+      padding-left: calc(1rem - 1px) !important;
+    } 
 
 }
 
