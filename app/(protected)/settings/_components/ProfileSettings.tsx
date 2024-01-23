@@ -3,7 +3,7 @@ import * as z from "zod";
 
 import { settings } from "@/actions/dashboard.actions";
 import { useSession } from "next-auth/react";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { SettingsValidation } from "@/lib/validations/settings";
 import toast from "react-hot-toast";
 import {
@@ -20,6 +20,11 @@ import { useCurrentUser } from "@/lib/hooks/useCurrentUser";
 
 const ProfileSettings = ({ form }: { form: any }) => {
     const user = useCurrentUser();
+    const [isChanged, setIsChanged] = useState<boolean>(false);
+
+    const handleInputChange = () => {
+        setIsChanged(true);
+    };
 
     const { update } = useSession();
     const [isPending, startTransition] = useTransition();
@@ -44,14 +49,14 @@ const ProfileSettings = ({ form }: { form: any }) => {
         <>
             <Form {...form}>
                 <form
-                    className="space-y-2"
+                    className="space-y-6"
                     onSubmit={form.handleSubmit(onSubmit)}
                 >
                     <div>
-                        <h4 className="text-2xl font-semibold text-[#ededed] tracking-normal pb-3">
+                        {/* <h4 className="text-2xl font-semibold text-[#ededed] tracking-normal pb-3">
                             Public profile
-                        </h4>{" "}
-                        <div className="pt-6 border-t border-white/10">
+                        </h4>{" "} */}
+                        <div className="p-6 border rounded-md border-white/10 w-full bg-black">
                             <FormField
                                 control={form.control}
                                 name="name"
@@ -65,7 +70,8 @@ const ProfileSettings = ({ form }: { form: any }) => {
                                                 {...field}
                                                 placeholder="Your name"
                                                 disabled={isPending}
-                                                className="account-form_input focus-visible:ring-0 !bg-primary-black"
+                                                className="account-form_input focus-visible:ring-0 !bg-[#0a0a0a]"
+                                                onClick={handleInputChange}
                                             ></Input>
                                         </FormControl>
                                         <FormMessage />
@@ -79,7 +85,7 @@ const ProfileSettings = ({ form }: { form: any }) => {
                         </div>
                         {user?.isOAuth === false && (
                             <>
-                                <div className="pt-3">
+                                <div className="mt-8 p-6 border rounded-md border-white/10 w-full bg-black">
                                     <FormField
                                         control={form.control}
                                         name="email"
@@ -93,7 +99,10 @@ const ProfileSettings = ({ form }: { form: any }) => {
                                                         {...field}
                                                         placeholder="example@email.com"
                                                         disabled={isPending}
-                                                        className="account-form_input focus-visible:ring-0 !bg-primary-black"
+                                                        className="account-form_input focus-visible:ring-0 !bg-[#0a0a0a]"
+                                                        onClick={
+                                                            handleInputChange
+                                                        }
                                                     ></Input>
                                                 </FormControl>
                                                 <FormMessage />
@@ -109,9 +118,10 @@ const ProfileSettings = ({ form }: { form: any }) => {
                             </>
                         )}
                     </div>
+
                     <button
                         type="submit"
-                        className="bg-[#ededed] px-3.5 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-normal w-fit"
+                        className="bg-primary-blurple text-primary-white px-4 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-medium w-fit"
                     >
                         Update profile
                     </button>

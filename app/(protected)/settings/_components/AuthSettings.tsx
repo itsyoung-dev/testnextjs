@@ -129,20 +129,17 @@ const AuthSettings = ({ form }: { form: any }) => {
                                         control={form.control}
                                         name="isTwoFactorEnabled"
                                         render={({ field }) => (
-                                            <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                                            <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm !border-white/10 bg-[#0a0a0a]">
                                                 <div className="space-y-0.5">
-                                                    <FormLabel>
-                                                        Two Factor
-                                                        Authentication
-                                                    </FormLabel>
-                                                    <FormDescription>
-                                                        Enable two factor
+                                                    <FormLabel className="account-form_label !text-sm !text-secondary-gray">
+                                                        Toggle two factor
                                                         authentication for your
                                                         account
-                                                    </FormDescription>
+                                                    </FormLabel>
                                                 </div>
                                                 <FormControl>
                                                     <Switch
+                                                        className="!border-white/10 "
                                                         disabled={isPending}
                                                         checked={field.value}
                                                         onCheckedChange={
@@ -157,10 +154,7 @@ const AuthSettings = ({ form }: { form: any }) => {
                                         type="submit"
                                         className="bg-[#ededed] px-3.5 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-normal w-fit"
                                     >
-                                        {user?.isTwoFactorEnabled
-                                            ? "Disable"
-                                            : "Enable  "}{" "}
-                                        2FA
+                                        Update 2FA
                                     </button>
                                 </div>
                             </div>
@@ -197,20 +191,21 @@ const AuthSettings = ({ form }: { form: any }) => {
                         /> */}
 
                         <div>
-                            <h4 className="text-2xl font-semibold text-red-400 tracking-normal pb-3 pt-12">
+                            <h4 className="text-2xl font-semibold text-[#F85149] tracking-normal pb-3 pt-12">
                                 Delete account
                             </h4>
-                            <div className="pt-6 border-t border-white/10 gap-y-4 flex flex-col">
+                            <div className="pt-6 border-t border-white/10 gap-y-1 flex flex-col">
                                 <p className="text-sm text-secondary-gray">
                                     Permanently remove your Personal Account and
                                     all of its contents from the database.{" "}
-                                    <br />
+                                </p>
+                                <p className="text-sm text-secondary-gray">
                                     This action is not reversible, so please
                                     continue with caution.
                                 </p>
                                 <button
                                     type="submit"
-                                    className=" border-white/20 border text-red-400 px-3.5 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-normal w-fit"
+                                    className=" border-white/20 border text-[#F85149] mt-4 px-3.5 py-1.5 rounded-md text-sm hover:opacity-80 duration-200 font-normal w-fit"
                                 >
                                     Delete account
                                 </button>
