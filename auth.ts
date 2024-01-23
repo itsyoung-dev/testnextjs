@@ -56,13 +56,16 @@ export const {
             if (session.user) {
                 session.user.isTwoFactorEnabled =
                     token.isTwoFactorEnabled as boolean;
-            }
 
-            if (session.user) {
                 session.user.name = token.name;
                 session.user.email = token.email;
                 session.user.isOAuth = token.isOAuth as boolean;
-                
+
+                session.user.isMember = token.isMember as boolean;
+                session.user.isAffiliate = token.isAffiliate as boolean;
+                session.user.isExplorer = token.isExplorer as boolean;
+                session.user.isWebClient = token.isWebClient as boolean;
+                session.user.isHostingClient = token.isHostingClient as boolean;
             }
 
             return session;
@@ -81,6 +84,11 @@ export const {
             token.email = existingUser.email;
             token.role = existingUser.role;
             token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
+            token.isMember = existingUser.member;
+            token.isAffiliate = existingUser.affiliate;
+            token.isExplorer = existingUser.explorer;
+            token.isWebClient = existingUser.webClient;
+            token.isHostingClient = existingUser.hostingClient;
 
             return token;
         },
