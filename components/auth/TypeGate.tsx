@@ -4,7 +4,7 @@ interface TypeGateProps {
 }
 export const TypeGate = ({ children, allowedType }: TypeGateProps) => {
     if (!allowedType) {
-        return <div></div>;
+        return false;
     }
 
     return <>{children}</>;
