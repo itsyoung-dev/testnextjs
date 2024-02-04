@@ -22,7 +22,6 @@ import { currentUser } from "@/lib/helpers/auth";
 const Sidebar = async () => {
     const user = await currentUser();
 
-    console.log(user?.isAffiliate);
     return (
         <div className="bg-[#0c0c0c] w-72 border-r border-white/10 pt-8 self-start fixed bottom-0 left-0 h-[calc(100vh-75px)]  max-md:hidden z-20 overflow-auto">
             <div className="flex flex-col justify-between h-full">
@@ -66,20 +65,24 @@ const Sidebar = async () => {
                         />
                     </SidebarSection>
                     <SidebarSection header="SERVICES" bottomDivider={true}>
-                        <SidebarLink
-                            icon={
-                                <TemplateOutline className="w-5 text-[#ffffffdb]" />
-                            }
-                            href="/"
-                            label="Web builder"
-                        />
-                        <SidebarLink
-                            icon={
-                                <ServerStackIcon className="w-5 text-[#ffffffdb]" />
-                            }
-                            href="/"
-                            label="Hosting"
-                        />
+                        <TypeGate allowedType={user?.isWebClient}>
+                            <SidebarLink
+                                icon={
+                                    <TemplateOutline className="w-5 text-[#ffffffdb]" />
+                                }
+                                href="/"
+                                label="Web builder"
+                            />
+                        </TypeGate>
+                        <TypeGate allowedType={user?.isHostingClient}>
+                            <SidebarLink
+                                icon={
+                                    <ServerStackIcon className="w-5 text-[#ffffffdb]" />
+                                }
+                                href="/"
+                                label="Hosting"
+                            />
+                        </TypeGate>
                     </SidebarSection>
                     <SidebarSection header="MORE">
                         <SidebarLink
